@@ -1,0 +1,5 @@
+factions: radiance, sanctuary, verdance, abyss, tempest | abilities: 67
+abilities cast ok: 62, failed: none
+abyss vs tempest: over=true winner=1 time=757 realMs=45327 maxEnts=95 worstStepMs=22.3 tiers=2/1 kills=36/124 bld=0/9
+radiance vs verdance: over=true winner=0 time=389 realMs=22332 maxEnts=84 worstStepMs=9.1 tiers=1/1 kills=53/5 bld=8/0
+sanctuary vs abyss: over=true winner=0 time=419 realMs=27556 maxEnts=88 worstStepMs=12.4 tiers=1/1 kills=71/6 bld=8/0

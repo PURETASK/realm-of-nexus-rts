@@ -1,0 +1,163 @@
+<title>Nexus Balance Baseline</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#f1f2f6;--panel:#ffffff;--ink:#171a26;--muted:#5a6078;--line:#d5d9e6;--accent:#8a6410;--accent-soft:#fff3cf;--bar:#b8891c;--heat:138,101,16;--gold:#ffd479;--warn:#b3261e}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0b0e1a;--panel:#0f1220;--ink:#dfe2ec;--muted:#8f97b3;--line:#2c3145;--accent:#ffd479;--accent-soft:#2a2410;--bar:#e0b84a;--heat:255,212,121;--warn:#ff8a80}}
+:root[data-theme="dark"]{--bg:#0b0e1a;--panel:#0f1220;--ink:#dfe2ec;--muted:#8f97b3;--line:#2c3145;--accent:#ffd479;--accent-soft:#2a2410;--bar:#e0b84a;--heat:255,212,121;--warn:#ff8a80}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.5;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:32px 24px 80px;display:flex;flex-direction:column;gap:36px}
+header h1{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:32px;letter-spacing:.04em;margin:0 0 8px;text-wrap:balance}
+header p{margin:0;max-width:70ch;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px 14px}
+.kpi b{display:block;font-family:"IBM Plex Mono",monospace;font-size:24px;font-weight:500;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+h2{font-family:Cinzel,Georgia,serif;font-weight:500;font-size:20px;letter-spacing:.06em;margin:0 0 10px;border-bottom:2px solid var(--gold);padding-bottom:6px}
+h3{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px;font-weight:600}
+.sub{color:var(--muted);margin:0 0 14px;max-width:80ch}
+.chart{display:grid;grid-template-columns:110px minmax(0,1fr) 60px;row-gap:10px;column-gap:12px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px 18px}
+.chart .lab{font-weight:600;text-align:right}
+.chart .track{position:relative;height:18px;background:transparent}
+.chart .track::before{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;border-left:1px dashed var(--line)}
+.chart .bar{position:absolute;left:0;top:2px;height:14px;background:var(--bar);border-radius:0 4px 4px 0}
+.chart .val{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;color:var(--muted)}
+.chart .axis{grid-column:2;display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th{text-align:left;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.n{font-weight:600;white-space:nowrap}
+td.num,th.num{text-align:right}
+td.heat{text-align:center;font-family:"IBM Plex Mono",monospace;font-size:13px}
+td.zero{color:var(--muted)}
+td.never{color:var(--warn)}
+.findings{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:14px 20px;max-width:80ch}
+.findings li{margin:6px 0}
+details{border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+details summary{cursor:pointer;padding:10px 14px;font-weight:600}
+details .tbl{border:0;border-top:1px solid var(--line);border-radius:0}
+.legend{font-size:12px;color:var(--muted);margin-top:8px}
+</style>
+<div class="wrap">
+<header><h1>Nexus Balance Baseline</h1>
+
+<p>150 AI-versus-AI matches from the Godot build: every faction pairing including mirrors, easy / normal / hard, two map seeds each, capped at 1200 game seconds. Player 0 is a normal AI in the human seat; player 1 is the opponent AI with the difficulty's income multiplier. Attack timing and build delay apply to both sides.</p></header>
+<div class="kpis"><div class="kpi"><b>150</b><span>matches</span></div><div class="kpi"><b>505 s</b><span>median length</span></div><div class="kpi"><b>296 s</b><span>median first blood</span></div><div class="kpi"><b>25</b><span>stand-offs at cap</span></div><div class="kpi"><b>0 / 300</b><span>seats reaching Tier 3</span></div></div>
+<section><h2>Faction win rate</h2><p class="sub">Wins over every match the faction appeared in, either seat, all difficulties. The dashed line is 50 percent; a fair roster sits within about ten points of it.</p><div class="chart">
+<div class="lab">Sanctuary</div><div class="track"><div class="bar" style="width:63.0%"></div></div><div class="val">63%</div>
+<div class="lab">Tempest</div><div class="track"><div class="bar" style="width:63.0%"></div></div><div class="val">63%</div>
+<div class="lab">Radiance</div><div class="track"><div class="bar" style="width:50.0%"></div></div><div class="val">50%</div>
+<div class="lab">Verdance</div><div class="track"><div class="bar" style="width:27.8%"></div></div><div class="val">28%</div>
+<div class="lab">Abyss</div><div class="track"><div class="bar" style="width:27.8%"></div></div><div class="val">28%</div>
+<div></div><div class="axis"><span>0</span><span>50</span><span>100%</span></div><div></div></div></section>
+<section><h2>Head-to-head</h2><p class="sub">Row is the human seat, column the opponent. Each cell is wins for the row faction out of six matches (three difficulties, two seeds). Darker cells are more wins.</p><div class="tbl"><table><thead><tr><th>vs</th><th class="heat" style="text-align:center">Sanctuary</th><th class="heat" style="text-align:center">Tempest</th><th class="heat" style="text-align:center">Radiance</th><th class="heat" style="text-align:center">Verdance</th><th class="heat" style="text-align:center">Abyss</th></tr></thead><tbody>
+<tr><td class="n">Sanctuary</td><td class="heat" style="background:rgba(var(--heat),0.32)">2 / 6</td><td class="heat" style="background:rgba(var(--heat),0.32)">2 / 6</td><td class="heat" style="background:rgba(var(--heat),0.44)">3 / 6</td><td class="heat" style="background:rgba(var(--heat),0.56)">4 / 6</td><td class="heat" style="background:rgba(var(--heat),0.56)">4 / 6</td></tr>
+<tr><td class="n">Tempest</td><td class="heat" style="background:rgba(var(--heat),0.32)">2 / 6</td><td class="heat" style="background:rgba(var(--heat),0.20)">1 / 6</td><td class="heat" style="background:rgba(var(--heat),0.44)">3 / 6</td><td class="heat" style="background:rgba(var(--heat),0.80)">6 / 6</td><td class="heat" style="background:rgba(var(--heat),0.56)">4 / 6</td></tr>
+<tr><td class="n">Radiance</td><td class="heat" style="background:rgba(var(--heat),0.20)">1 / 6</td><td class="heat" style="background:rgba(var(--heat),0.32)">2 / 6</td><td class="heat" style="background:rgba(var(--heat),0.44)">3 / 6</td><td class="heat" style="background:rgba(var(--heat),0.32)">2 / 6</td><td class="heat" style="background:rgba(var(--heat),0.56)">4 / 6</td></tr>
+<tr><td class="n">Verdance</td><td class="heat" style="background:rgba(var(--heat),0.20)">1 / 6</td><td class="heat" style="background:rgba(var(--heat),0.32)">2 / 6</td><td class="heat" style="background:rgba(var(--heat),0.20)">1 / 6</td><td class="heat" style="background:rgba(var(--heat),0.20)">1 / 6</td><td class="heat" style="background:rgba(var(--heat),0.32)">2 / 6</td></tr>
+<tr><td class="n">Abyss</td><td class="heat" style="background:rgba(var(--heat),0.32)">2 / 6</td><td class="heat" style="background:rgba(var(--heat),0.20)">1 / 6</td><td class="heat" style="background:rgba(var(--heat),0.20)">1 / 6</td><td class="heat" style="background:rgba(var(--heat),0.32)">2 / 6</td><td class="heat" style="background:rgba(var(--heat),0.32)">2 / 6</td></tr>
+</tbody></table></div></section>
+<section><h2>Difficulty</h2><p class="sub">How the human seat fared against each difficulty. Because only the income multiplier is asymmetric in this harness, the spread is smaller than a real player would feel.</p><div class="tbl"><table><thead><tr><th>Difficulty</th><th class="num">Matches</th><th class="num">Human seat wins</th><th class="num">Opponent wins</th><th class="num">Stand-offs</th><th class="num">Avg length (s)</th></tr></thead><tbody>
+<tr><td class="n">easy</td><td class="num">50</td><td class="num">17</td><td class="num">15</td><td class="num">18</td><td class="num">833</td></tr>
+<tr><td class="n">normal</td><td class="num">50</td><td class="num">19</td><td class="num">26</td><td class="num">5</td><td class="num">567</td></tr>
+<tr><td class="n">hard</td><td class="num">50</td><td class="num">22</td><td class="num">26</td><td class="num">2</td><td class="num">468</td></tr>
+</tbody></table></div></section>
+<section><h2>Tech progression</h2><p class="sub">Per seat (60 per faction). Tier 3 was never reached, so Tier 3 units, research, and ultimates did not feature in a single match.</p><div class="tbl"><table><thead><tr><th>Faction</th><th class="num">Seats</th><th class="num">Reached Tier 2</th><th class="num">Reached Tier 3</th><th class="num">Avg peak supply</th><th class="num">Avg match length (s)</th></tr></thead><tbody>
+<tr><td class="n">Sanctuary</td><td class="num">60</td><td class="num">60</td><td class="num">0</td><td class="num">32.8</td><td class="num">567</td></tr>
+<tr><td class="n">Tempest</td><td class="num">60</td><td class="num">52</td><td class="num">2</td><td class="num">32.5</td><td class="num">633</td></tr>
+<tr><td class="n">Radiance</td><td class="num">60</td><td class="num">58</td><td class="num">0</td><td class="num">32.1</td><td class="num">561</td></tr>
+<tr><td class="n">Verdance</td><td class="num">60</td><td class="num">58</td><td class="num">11</td><td class="num">31.0</td><td class="num">619</td></tr>
+<tr><td class="n">Abyss</td><td class="num">60</td><td class="num">58</td><td class="num">0</td><td class="num">37.8</td><td class="num">589</td></tr>
+</tbody></table></div></section>
+<section><h2>What the AI actually built</h2><p class="sub">Units are average copies per match; buildings and research are the number of seats that produced them at least once. Red means never.</p>
+<details><summary>Sanctuary <span style="color:var(--muted);font-weight:400">— 12 items never produced</span></summary>
+<div class="tbl"><table><thead><tr><th>Unit</th><th class="num">Tier</th><th class="num">Per match</th><th>Building</th><th class="num">Tier</th><th class="num">Seats</th><th>Research</th><th class="num">Seats</th></tr></thead><tbody>
+<tr><td class="">Pilgrim</td><td class="num">1</td><td class="num ">10.3</td><td class="">Luminarch Citadel</td><td class="num">1</td><td class="num ">60</td><td class="">Blessed Arms</td><td class="num ">17</td></tr>
+<tr><td class="">Temple Guard</td><td class="num">1</td><td class="num ">7.2</td><td class="">Beaconwright Hall</td><td class="num">1</td><td class="num ">60</td><td class="">Aegis Plating</td><td class="num ">2</td></tr>
+<tr><td class="">Seraphic Archer</td><td class="num">1</td><td class="num ">18.1</td><td class="">Sanctified Vault</td><td class="num">1</td><td class="num ">60</td><td class="never">Greater Wards</td><td class="num never">0</td></tr>
+<tr><td class="">Cleric</td><td class="num">1</td><td class="num ">6.7</td><td class="">Sacrosanct Shrine</td><td class="num">1</td><td class="num ">60</td><td class="never">Divine Favor</td><td class="num never">0</td></tr>
+<tr><td class="never">Celestial Paladin</td><td class="num">2</td><td class="num never">0.0</td><td class="">Radiant Tower</td><td class="num">1</td><td class="num ">60</td><td class="">Sanctified Walls</td><td class="num ">2</td></tr>
+<tr><td class="never">Divine Griffin</td><td class="num">2</td><td class="num never">0.0</td><td class="never">Refuge Gatehouse</td><td class="num">1</td><td class="num never">0</td><td class="never">Martyrdom</td><td class="num never">0</td></tr>
+<tr><td class="">Inquisitor</td><td class="num">2</td><td class="num ">0.0</td><td class="">Lightborne Relay</td><td class="num">1</td><td class="num ">60</td><td></td><td></td></tr>
+<tr><td class="never">Blessed Trebuchet</td><td class="num">2</td><td class="num never">0.0</td><td class="">Concord Hall</td><td class="num">2</td><td class="num ">44</td><td></td><td></td></tr>
+<tr><td class="never">Seraph</td><td class="num">3</td><td class="num never">0.0</td><td class="">Hall of Luminaries</td><td class="num">2</td><td class="num ">57</td><td></td><td></td></tr>
+<tr><td class="never">Exemplar</td><td class="num">3</td><td class="num never">0.0</td><td class="">Griffin Aerie</td><td class="num">2</td><td class="num ">23</td><td></td><td></td></tr>
+<tr><td class="never">Archangel</td><td class="num">3</td><td class="num never">0.0</td><td class="never">Siege Chapel</td><td class="num">2</td><td class="num never">0</td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="">Eternal Bell Spire</td><td class="num">2</td><td class="num ">2</td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="never">Altar of Tears</td><td class="num">3</td><td class="num never">0</td><td></td><td></td></tr>
+</tbody></table></div></details>
+<details><summary>Tempest <span style="color:var(--muted);font-weight:400">— 11 items never produced</span></summary>
+<div class="tbl"><table><thead><tr><th>Unit</th><th class="num">Tier</th><th class="num">Per match</th><th>Building</th><th class="num">Tier</th><th class="num">Seats</th><th>Research</th><th class="num">Seats</th></tr></thead><tbody>
+<tr><td class="">Windcaster</td><td class="num">1</td><td class="num ">4.9</td><td class="">Stormspire Outpost</td><td class="num">1</td><td class="num ">60</td><td class="">Stormsteel Weapons</td><td class="num ">13</td></tr>
+<tr><td class="">Stormblade</td><td class="num">1</td><td class="num ">14.7</td><td class="">Gale Barracks</td><td class="num">1</td><td class="num ">60</td><td class="">Forecast</td><td class="num ">9</td></tr>
+<tr><td class="">Wind Archer</td><td class="num">1</td><td class="num ">26.8</td><td class="">Aerie / Skyworks</td><td class="num">1</td><td class="num ">58</td><td class="">Static Shield</td><td class="num ">9</td></tr>
+<tr><td class="">Skywing</td><td class="num">1</td><td class="num ">16.1</td><td class="">Aetherforge</td><td class="num">1</td><td class="num ">60</td><td class="">Lightweight Alloy</td><td class="num ">2</td></tr>
+<tr><td class="">Thunderhawk</td><td class="num">2</td><td class="num ">0.1</td><td class="">Stormcall Array</td><td class="num">1</td><td class="num ">58</td><td class="never">Overcharge Capacitors</td><td class="num never">0</td></tr>
+<tr><td class="">Tempest Rider</td><td class="num">2</td><td class="num ">0.1</td><td class="">Stormcall Tower</td><td class="num">1</td><td class="num ">60</td><td class="">Tribute Efficiency</td><td class="num ">1</td></tr>
+<tr><td class="">Storm Golem</td><td class="num">2</td><td class="num ">0.0</td><td class="">Thunderhead Tower</td><td class="num">1</td><td class="num ">58</td><td class="never">Storm Amplification</td><td class="num never">0</td></tr>
+<tr><td class="never">Lightning Cannon</td><td class="num">2</td><td class="num never">0.0</td><td class="">Cyclone Totem</td><td class="num">1</td><td class="num ">4</td><td></td><td></td></tr>
+<tr><td class="never">Tempest Weaver</td><td class="num">3</td><td class="num never">0.0</td><td class="never">Tempest Barrier</td><td class="num">1</td><td class="num never">0</td><td></td><td></td></tr>
+<tr><td class="never">Sky Leviathan</td><td class="num">3</td><td class="num never">0.0</td><td class="never">Storm Beacon</td><td class="num">1</td><td class="num never">0</td><td></td><td></td></tr>
+<tr><td class="never">Armada Shocktrooper</td><td class="num">1</td><td class="num never">0.0</td><td class="">Tempest Forge</td><td class="num">2</td><td class="num ">43</td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="">Stratosanct</td><td class="num">2</td><td class="num ">4</td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="never">Stormseer Conclave</td><td class="num">3</td><td class="num never">0</td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="never">Celestial Bastion</td><td class="num">3</td><td class="num never">0</td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="never">Maelstrom Altar</td><td class="num">3</td><td class="num never">0</td><td></td><td></td></tr>
+</tbody></table></div></details>
+<details><summary>Radiance <span style="color:var(--muted);font-weight:400">— 6 items never produced</span></summary>
+<div class="tbl"><table><thead><tr><th>Unit</th><th class="num">Tier</th><th class="num">Per match</th><th>Building</th><th class="num">Tier</th><th class="num">Seats</th><th>Research</th><th class="num">Seats</th></tr></thead><tbody>
+<tr><td class="">Sunbearer</td><td class="num">1</td><td class="num ">10.4</td><td class="">Sunforge Citadel</td><td class="num">1</td><td class="num ">60</td><td class="">Blessed Steel</td><td class="num ">23</td></tr>
+<tr><td class="">Dawn Legionary</td><td class="num">1</td><td class="num ">7.9</td><td class="">Solar Crucible</td><td class="num">1</td><td class="num ">60</td><td class="">Sunforged Plate</td><td class="num ">7</td></tr>
+<tr><td class="">Solar Archer</td><td class="num">1</td><td class="num ">14.0</td><td class="">Sunstone Vault</td><td class="num">1</td><td class="num ">60</td><td class="">Daybreak</td><td class="num ">1</td></tr>
+<tr><td class="">Sun Priest</td><td class="num">1</td><td class="num ">9.1</td><td class="">Radiant Shrine</td><td class="num">1</td><td class="num ">60</td><td class="">Radiant Wards</td><td class="num ">4</td></tr>
+<tr><td class="">Sunforged Knight</td><td class="num">2</td><td class="num ">0.0</td><td class="">Blazing Bastion</td><td class="num">1</td><td class="num ">60</td><td class="">Phoenix Fire</td><td class="num ">1</td></tr>
+<tr><td class="never">Phoenix Herald</td><td class="num">2</td><td class="num never">0.0</td><td class="never">Emberline Gate</td><td class="num">1</td><td class="num never">0</td><td class="never">Eternal Dawn</td><td class="num never">0</td></tr>
+<tr><td class="">Pyrestorm Engine</td><td class="num">2</td><td class="num ">0.1</td><td class="">Dawnwatch Beacon</td><td class="num">1</td><td class="num ">60</td><td></td><td></td></tr>
+<tr><td class="never">Radiant Angel</td><td class="num">3</td><td class="num never">0.0</td><td class="">Heliarch Spire</td><td class="num">2</td><td class="num ">54</td><td></td><td></td></tr>
+<tr><td class="never">Solar Titan</td><td class="num">3</td><td class="num never">0.0</td><td class="">Phoenix Roost</td><td class="num">2</td><td class="num ">45</td><td></td><td></td></tr>
+<tr><td class="never">Avatar of Dawn</td><td class="num">3</td><td class="num never">0.0</td><td class="">Pyrestorm Battery</td><td class="num">2</td><td class="num ">8</td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="">Solar Relay</td><td class="num">2</td><td class="num ">17</td><td></td><td></td></tr>
+</tbody></table></div></details>
+<details><summary>Verdance <span style="color:var(--muted);font-weight:400">— 10 items never produced</span></summary>
+<div class="tbl"><table><thead><tr><th>Unit</th><th class="num">Tier</th><th class="num">Per match</th><th>Building</th><th class="num">Tier</th><th class="num">Seats</th><th>Research</th><th class="num">Seats</th></tr></thead><tbody>
+<tr><td class="">Tender</td><td class="num">1</td><td class="num ">10.9</td><td class="">Everwood Spire</td><td class="num">1</td><td class="num ">60</td><td class="">Sharpened Thorns</td><td class="num ">29</td></tr>
+<tr><td class="">Thornguard</td><td class="num">1</td><td class="num ">10.1</td><td class="">Bloomforge</td><td class="num">1</td><td class="num ">60</td><td class="">Ironbark</td><td class="num ">6</td></tr>
+<tr><td class="">Briar Archer</td><td class="num">1</td><td class="num ">14.6</td><td class="">Groveheart Nexus</td><td class="num">1</td><td class="num ">60</td><td class="">Wild Growth</td><td class="num ">7</td></tr>
+<tr><td class="">Forest Nymph</td><td class="num">1</td><td class="num ">7.8</td><td class="">Verdant Sigil Hall</td><td class="num">1</td><td class="num ">60</td><td class="never">Deep Roots</td><td class="num never">0</td></tr>
+<tr><td class="">Verdant Sentinel</td><td class="num">2</td><td class="num ">0.0</td><td class="">Rootwarden Bastion</td><td class="num">1</td><td class="num ">60</td><td class="never">Symbiosis</td><td class="num never">0</td></tr>
+<tr><td class="">Spirit of the Everwood</td><td class="num">2</td><td class="num ">0.0</td><td class="never">Thornwall Gatehouse</td><td class="num">1</td><td class="num never">0</td><td class="never">Everwood&#x27;s Blessing</td><td class="num never">0</td></tr>
+<tr><td class="">Dire Stag</td><td class="num">2</td><td class="num ">0.6</td><td class="">Cycle Sanctuary</td><td class="num">2</td><td class="num ">53</td><td></td><td></td></tr>
+<tr><td class="never">Rootcrusher</td><td class="num">2</td><td class="num never">0.0</td><td class="">Sylvan Waystone</td><td class="num">2</td><td class="num ">23</td><td></td><td></td></tr>
+<tr><td class="never">Ancient Treant</td><td class="num">3</td><td class="num never">0.0</td><td class="">Wild Den</td><td class="num">2</td><td class="num ">33</td><td></td><td></td></tr>
+<tr><td class="never">Great Owl</td><td class="num">3</td><td class="num never">0.0</td><td class="">Spirit Tree</td><td class="num">2</td><td class="num ">44</td><td></td><td></td></tr>
+<tr><td class="never">Heart of the Everwood</td><td class="num">3</td><td class="num never">0.0</td><td class="">Sapwood Granary</td><td class="num">1</td><td class="num ">60</td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="never">Everglen Outpost</td><td class="num">2</td><td class="num never">0</td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="never">World Seed Altar</td><td class="num">3</td><td class="num never">0</td><td></td><td></td></tr>
+</tbody></table></div></details>
+<details><summary>Abyss <span style="color:var(--muted);font-weight:400">— 16 items never produced</span></summary>
+<div class="tbl"><table><thead><tr><th>Unit</th><th class="num">Tier</th><th class="num">Per match</th><th>Building</th><th class="num">Tier</th><th class="num">Seats</th><th>Research</th><th class="num">Seats</th></tr></thead><tbody>
+<tr><td class="">Acolyte</td><td class="num">1</td><td class="num ">16.4</td><td class="">Necropolis of Shades</td><td class="num">1</td><td class="num ">60</td><td class="">Dark Blessing</td><td class="num ">15</td></tr>
+<tr><td class="">Skeleton Warrior</td><td class="num">1</td><td class="num ">19.3</td><td class="">Grim Crypt</td><td class="num">1</td><td class="num ">60</td><td class="never">Necrotic Armor</td><td class="num never">0</td></tr>
+<tr><td class="">Gravebow Archer</td><td class="num">1</td><td class="num ">26.3</td><td class="">Occult Den</td><td class="num">1</td><td class="num ">60</td><td class="never">Grave March</td><td class="num never">0</td></tr>
+<tr><td class="">Shadow Adept</td><td class="num">1</td><td class="num ">9.3</td><td class="">Soul Well</td><td class="num">1</td><td class="num ">60</td><td class="never">Blight Plague</td><td class="num never">0</td></tr>
+<tr><td class="never">Necromancer</td><td class="num">2</td><td class="num never">0.0</td><td class="">Soul Obelisk</td><td class="num">1</td><td class="num ">60</td><td class="never">Vampiric Relics</td><td class="num never">0</td></tr>
+<tr><td class="">Banshee</td><td class="num">2</td><td class="num ">0.0</td><td class="">Corruption Spire</td><td class="num">1</td><td class="num ">59</td><td class="never">Death Fog</td><td class="num never">0</td></tr>
+<tr><td class="never">Flesh Abomination</td><td class="num">2</td><td class="num never">0.0</td><td class="never">Bone Wall</td><td class="num">1</td><td class="num never">0</td><td></td><td></td></tr>
+<tr><td class="never">Bone Catapult</td><td class="num">2</td><td class="num never">0.0</td><td class="never">Plague Mine</td><td class="num">1</td><td class="num never">0</td><td></td><td></td></tr>
+<tr><td class="never">Void Knight</td><td class="num">3</td><td class="num never">0.0</td><td class="">Necromancer&#x27;s Spire</td><td class="num">2</td><td class="num ">38</td><td></td><td></td></tr>
+<tr><td class="never">Nether Dragon</td><td class="num">3</td><td class="num never">0.0</td><td class="">Flesh Forge</td><td class="num">2</td><td class="num ">24</td><td></td><td></td></tr>
+<tr><td class="never">Shade</td><td class="num">3</td><td class="num never">0.0</td><td class="">Reliquary of Darkness</td><td class="num">2</td><td class="num ">11</td><td></td><td></td></tr>
+<tr><td class="never">The Deathlord</td><td class="num">3</td><td class="num never">0.0</td><td class="">Corruption Crucible</td><td class="num">2</td><td class="num ">55</td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="never">Void Gate</td><td class="num">3</td><td class="num never">0</td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="never">Cathedral of Decay</td><td class="num">3</td><td class="num never">0</td><td></td><td></td></tr>
+</tbody></table></div></details>
+</section>
+<section><h2>Findings — run 3, after the AI tech fix, Abyss drop-off and Sanctuary ward trim</h2><div class="findings"><ol>
+<li><b>Sanctuary is strongest</b> at 63 percent; <b>Abyss is weakest</b> at 28 percent. The rest sit between 28 and 63. A spread wider than about twenty points means the rosters, not the AI, are unbalanced.</li>
+<li><b>Tech.</b> Tier 2 was reached in 286 of 300 seats; Tier 3 in 13. Tier 2 units built per faction across the run: Sanctuary 1, Tempest 13, Radiance 8, Verdance 39, Abyss 2.</li>
+<li><b>25 matches stalled to the cap.</b> Both sides turtle behind towers; the late-game attack escalation is meant to end these.</li>
+<li><b>Difficulty.</b> The human seat won 17 of 50 on easy and 22 of 50 on hard. Only the income multiplier is asymmetric in this harness, so a real player feels a wider gap.</li>
+</ol></div><p class="legend">Regenerate: <code>python tools/balance_report.py &lt;results dir&gt;</code> and <code>python tools/gen_balance_page.py &lt;results dir&gt; [label]</code>. Matches come from <code>godot/tools/balance.gd</code>.</p></section>
+</div>

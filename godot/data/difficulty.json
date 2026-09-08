@@ -1,0 +1,26 @@
+{
+ "easy": {
+  "name": "Easy",
+  "incomeMul": 0.8,
+  "attackSupply": 30,
+  "attackGrowth": 4,
+  "buildDelay": 2,
+  "firstAttack": 420
+ },
+ "normal": {
+  "name": "Normal",
+  "incomeMul": 1,
+  "attackSupply": 24,
+  "attackGrowth": 5,
+  "buildDelay": 1,
+  "firstAttack": 270
+ },
+ "hard": {
+  "name": "Hard",
+  "incomeMul": 1.35,
+  "attackSupply": 18,
+  "attackGrowth": 6,
+  "buildDelay": 0.5,
+  "firstAttack": 150
+ }
+}

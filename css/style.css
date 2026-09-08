@@ -1,0 +1,66 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #05060a; color: #ddd; font-family: 'Segoe UI', Tahoma, sans-serif; user-select: none; }
+#game { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: none; }
+#canvas { position: absolute; left: 0; top: 0; display: block; cursor: crosshair; }
+
+#topbar { position: absolute; left: 0; top: 0; right: 0; height: 34px; background: linear-gradient(#1b1f2c, #0d0f16); border-bottom: 1px solid #2c3145; display: flex; align-items: center; padding: 0 12px; gap: 22px; font-size: 14px; z-index: 5; }
+#topbar .res { display: flex; gap: 6px; align-items: center; }
+#topbar .res b { color: #fff; }
+#topbar .spacer { flex: 1; }
+#topbar .tier { color: #ffd479; }
+#topbar .weather { color: #8fd3ff; }
+#topbar button { background: #2a3048; color: #ddd; border: 1px solid #4a5170; padding: 2px 10px; cursor: pointer; }
+
+#bottombar { position: absolute; left: 0; right: 0; bottom: 0; height: 190px; background: linear-gradient(#141826, #0a0c13); border-top: 1px solid #2c3145; display: flex; z-index: 5; }
+#minimapWrap { width: 200px; height: 190px; padding: 6px; border-right: 1px solid #2c3145; }
+#minimap { width: 188px; height: 176px; background: #000; border: 1px solid #3a4160; cursor: pointer; }
+#selpanel { flex: 1; padding: 8px 12px; overflow: hidden; font-size: 13px; display: flex; flex-direction: column; gap: 4px; }
+#selpanel h3 { margin: 0; font-size: 16px; color: #fff; }
+#selpanel .hpbar { height: 8px; background: #3a1f1f; border: 1px solid #000; width: 220px; }
+#selpanel .hpbar div { height: 100%; background: #3fd66a; }
+#selpanel .desc { color: #aab; font-size: 12px; max-width: 520px; line-height: 1.35; }
+#selpanel .queue { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
+#selpanel .queue div { background: #222a40; border: 1px solid #4a5170; padding: 2px 6px; font-size: 11px; cursor: pointer; }
+#selpanel .queue div.active { border-color: #ffd479; }
+#selpanel .multi { display: flex; flex-wrap: wrap; gap: 3px; }
+#selpanel .multi div { width: 34px; height: 30px; border: 1px solid #4a5170; background: #1a2035; font-size: 10px; text-align: center; line-height: 12px; padding-top: 2px; cursor: pointer; overflow: hidden; }
+#selpanel .multi div .b { height: 3px; background: #3fd66a; margin: 2px 2px 0; }
+#cmdcard { width: 372px; padding: 8px; border-left: 1px solid #2c3145; display: grid; grid-template-columns: repeat(4, 84px); grid-auto-rows: 54px; gap: 5px; align-content: start; }
+.cmd { background: #1e2438; border: 1px solid #4a5170; color: #ddd; font-size: 11px; cursor: pointer; position: relative; padding: 3px; text-align: center; line-height: 1.2; overflow: hidden; }
+.cmd:hover { background: #2c3552; border-color: #8fa0d8; }
+.cmd.disabled { opacity: 0.4; cursor: not-allowed; }
+.cmd.active { border-color: #ffd479; background: #3a3420; }
+.cmd .key { position: absolute; right: 3px; top: 1px; font-size: 10px; color: #ffd479; }
+.cmd .cd { position: absolute; left: 0; bottom: 0; right: 0; background: rgba(0,0,0,0.6); }
+.cmd .cost { display: block; font-size: 10px; color: #9ab; }
+
+#msglog { position: absolute; left: 12px; bottom: 200px; width: 480px; font-size: 13px; z-index: 4; pointer-events: none; text-shadow: 1px 1px 2px #000; }
+#msglog div { margin: 2px 0; color: #eee; }
+#msglog div.warn { color: #ff9b6a; }
+#msglog div.good { color: #9dff9d; }
+
+#tooltip { position: absolute; background: rgba(10,12,20,0.95); border: 1px solid #5a6390; padding: 8px 10px; font-size: 12px; max-width: 320px; z-index: 20; pointer-events: none; display: none; line-height: 1.4; }
+#tooltip b { color: #fff; }
+#tooltip .c { color: #ffd479; }
+
+#menu { position: absolute; inset: 0; background: radial-gradient(ellipse at center, #171c30 0%, #05060a 70%); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 50; }
+#menu h1 { font-size: 46px; letter-spacing: 6px; margin: 0 0 4px; color: #fff; text-shadow: 0 0 24px #4a7bff; }
+#menu h2 { font-weight: normal; margin: 0 0 26px; color: #9ab; letter-spacing: 3px; font-size: 15px; }
+.factions { display: flex; gap: 14px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; max-width: 1400px; }
+.fcard { width: 260px; border: 2px solid #33395a; background: rgba(20,24,40,0.8); padding: 14px; cursor: pointer; }
+.fcard:hover { border-color: #8fa0d8; }
+.fcard.sel { border-color: #ffd479; box-shadow: 0 0 18px rgba(255,212,121,0.35); }
+.fcard h3 { margin: 0 0 6px; font-size: 20px; }
+.fcard p { margin: 0; font-size: 12px; color: #aab; line-height: 1.4; }
+.fcard.locked { opacity: 0.35; cursor: not-allowed; }
+#menu .opts { display: flex; gap: 20px; margin-bottom: 20px; font-size: 14px; align-items: center; }
+#menu select { background: #1e2438; color: #ddd; border: 1px solid #4a5170; padding: 4px 8px; }
+#menu .start { font-size: 20px; padding: 10px 40px; background: #2f4a8a; color: #fff; border: 1px solid #7a9aff; cursor: pointer; letter-spacing: 2px; }
+#menu .start:hover { background: #3d5fae; }
+#menu .help { margin-top: 18px; color: #778; font-size: 12px; max-width: 700px; text-align: center; line-height: 1.5; }
+
+#endscreen { position: absolute; inset: 0; background: rgba(0,0,0,0.75); display: none; align-items: center; justify-content: center; flex-direction: column; z-index: 60; }
+#endscreen h1 { font-size: 54px; color: #fff; }
+#endscreen button { font-size: 18px; padding: 8px 30px; background: #2f4a8a; color: #fff; border: 1px solid #7a9aff; cursor: pointer; }
+
+#pausebox { position: absolute; left: 50%; top: 45%; transform: translate(-50%,-50%); font-size: 40px; color: #fff; display: none; z-index: 30; text-shadow: 0 0 10px #000; }

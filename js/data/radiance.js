@@ -1,0 +1,78 @@
+// RADIANCE — Domain of the Sun  (PROVISIONAL: built from the domains overview + unified building list; no Volume 1 sheet yet)
+// Canon names used: Sunforge Citadel, Solar Crucible, Sunstone Vault, Blazing Bastion, Heliarch Spire, Dawnwatch Beacon,
+// Radiant Shrine, Solar Relay, Pyrestorm Battery, Emberline Gate; Sunforged Knights, Phoenix Heralds, Radiant Angels; Sunstone.
+// Everything marked (invented) is a placeholder to be replaced from the Volume 1 PDF.
+const RADIANCE = {
+  id: 'radiance',
+  name: 'Radiance',
+  tagline: 'Domain of the Sun',
+  blurb: 'Celestial light and purity. Sunlight spreads from your structures: your soldiers heal and strike harder in it, blight withers, and nothing hides. Heal, smite, and let the Phoenix rise again.',
+  color: '#ffcc44',
+  provisional: true,
+  affinity: 'light', gathers: true, nodeBuilding: { primary: 'sunstone_vault', secondary: null },
+  resources: {
+    primary:   { name: 'Sunstone',        short: 'Sunstone', icon: '☀' },
+    secondary: { name: 'Dawnlight',       short: 'Light',    icon: '✧' },   // (invented)
+    catalyst:  { name: 'Phoenix Feather', short: 'Feather',  icon: '✺' },   // (invented)
+  },
+  worker: 'sunbearer',
+  base: 'sunforge_citadel',
+  startRes: { p: 400, s: 0, c: 0 },
+  tips: [
+    'Sunbearers carry Sunstone from nodes to the Citadel or a Sunstone Vault.',
+    'Sunlight spreads from your structures. Your units heal in it, blight burns away, and hidden enemies are revealed.',
+    'Radiant Shrines heal nearby units and generate Dawnlight for your elite and your spells.',
+    'Phoenix Heralds rise again once after death. A Phoenix Feather summons the Avatar of Dawn.',
+  ],
+  tiers: [
+    { name: 'Sunforge Citadel', supply: 30, hp: 1500, terrain: 5 },
+    { name: 'Sunforge Citadel — Solar Crown', supply: 50, hp: 2200, terrain: 8, cost: { p: 650 }, time: 60, requires: 'radiant_shrine',
+      desc: 'Unlocks Tier 2 structures and a second hero. Sunlight spreads farther.' },
+    { name: 'Sunforge Citadel — Zenith', supply: 80, hp: 3000, terrain: 12, cost: { p: 1200, s: 400 }, time: 90, requires: 'heliarch_spire',
+      desc: 'Unlocks Tier 3 units and the third hero. The Zenith crown pours permanent beams of light.' },
+  ],
+  units: {
+    sunbearer: { name: 'Sunbearer', desc: 'Worker. Gathers Sunstone and builds structures.', hp: 45, armor: 0, dmg: 3, range: 1, cd: 1.2, speed: 3.2, sight: 6, cost: { p: 50 }, supply: 1, time: 12, tier: 1, type: 'worker', hotkey: 'S' },
+    dawn_legionary: { name: 'Dawn Legionary', desc: 'Disciplined shield infantry. Sturdy line-holder.', hp: 80, armor: 2, dmg: 8, range: 1, cd: 1.0, speed: 3.0, sight: 6, cost: { p: 60 }, supply: 1, time: 12, tier: 1, type: 'infantry', hotkey: 'L' },
+    solar_archer: { name: 'Solar Archer', desc: 'Ranged. Arrows of focused light strike ground and air.', hp: 45, armor: 0, dmg: 9, range: 5, cd: 1.3, speed: 3.0, sight: 7, cost: { p: 65 }, supply: 1, time: 13, tier: 1, type: 'ranged', air: true, hotkey: 'A' },
+    sun_priest: { name: 'Sun Priest', desc: 'Healer. Mends wounded allies with sunlight (auto). Weak attack.', hp: 55, armor: 0, dmg: 5, range: 4, cd: 1.4, speed: 3.0, sight: 7, cost: { p: 80, s: 10 }, supply: 1, time: 16, tier: 1, type: 'caster', air: true, magic: true, heal: 14, hotkey: 'P' },
+    sunforged_knight: { name: 'Sunforged Knight', desc: 'Heavy cavalry in blazing plate. Fast, armored charge.', hp: 240, armor: 5, dmg: 22, range: 1, cd: 1.1, speed: 3.6, sight: 7, cost: { p: 170, s: 40 }, supply: 3, time: 26, tier: 2, type: 'infantry', hotkey: 'K' },
+    phoenix_herald: { name: 'Phoenix Herald', desc: 'Flying firebird. Splash fire on ground and air. Rises again once after death.', hp: 150, armor: 1, dmg: 16, range: 3, cd: 1.2, speed: 4.6, sight: 8, cost: { p: 140, s: 60 }, supply: 2, time: 24, tier: 2, type: 'flying', flying: true, air: true, splash: 1, magic: true, rebirth: true, hotkey: 'H' },
+    pyrestorm_engine: { name: 'Pyrestorm Engine', desc: 'Siege engine hurling solar fire. Splash, double vs structures.', hp: 130, armor: 1, dmg: 42, range: 8, minRange: 2, cd: 3.2, speed: 1.9, sight: 9, cost: { p: 160, s: 80 }, supply: 3, time: 30, tier: 2, type: 'siege', splash: 1.5, vsBuilding: 2, magic: true, hotkey: 'E' },
+    radiant_angel: { name: 'Radiant Angel', desc: 'Celestial flier. Smites with holy light and mends allies between strikes.', hp: 380, armor: 4, dmg: 34, range: 4, cd: 1.5, speed: 3.8, sight: 9, cost: { p: 300, s: 220 }, supply: 5, time: 45, tier: 3, type: 'flying', flying: true, air: true, magic: true, heal: 25, vsUndead: 1.5, hotkey: 'R' },
+    solar_titan: { name: 'Solar Titan', desc: 'Colossal sun-forged construct. Splash melee, carries sunlight with it.', hp: 700, armor: 6, dmg: 45, range: 1.5, cd: 1.6, speed: 2.4, sight: 8, cost: { p: 420, s: 260 }, supply: 6, time: 55, tier: 3, type: 'infantry', splash: 1.5, spreads: true, mechanical: true, hotkey: 'T' },
+    avatar_of_dawn: { name: 'Avatar of Dawn', desc: 'One may exist. The sun made flesh: burns enemies and heals allies around it.', hp: 1300, armor: 7, dmg: 65, range: 2, cd: 1.5, speed: 2.6, sight: 10, cost: { p: 500, s: 300, c: 1 }, supply: 8, time: 60, tier: 3, type: 'infantry', splash: 2, unique: true, spreads: true, aura: { id: 'dawn_aura', radius: 5 }, hotkey: 'V' },
+  },
+  heroes: {  // names are (invented) placeholders
+    aurelian: { name: 'Aurelian Dawnblade', title: 'Sunforged Champion', role: 'Military', desc: 'Frontline paladin. Smites, rallies and calls down the judgment of the sun.',
+      hp: 400, armor: 4, dmg: 26, range: 1, cd: 1.1, speed: 3.3, sight: 8, cost: { p: 250 }, supply: 0, time: 30, type: 'hero', spreads: true,
+      abilities: ['sun_smite', 'rally_of_dawn', 'blinding_flare', 'judgment_of_the_sun'], hotkey: 'D' },
+    seraphine: { name: 'Seraphine Lightkeeper', title: 'Dawn Oracle', role: 'Economic / Support', desc: 'Healer and steward. Blesses the tithe, sanctifies ground, and raises the fallen.',
+      hp: 250, armor: 1, dmg: 10, range: 4, cd: 1.3, speed: 3.1, sight: 8, cost: { p: 200 }, supply: 0, time: 30, type: 'hero', air: true, magic: true,
+      abilities: ['healing_light', 'sanctified_ground', 'blessed_tithe', 'resurrection'], hotkey: 'O' },
+    solaris: { name: 'Solaris', title: 'the Archon', role: 'Magical / Utility', desc: 'Ranged sun-mage. Lances of light, dawn bursts, light-steps and the Supernova.',
+      hp: 260, armor: 1, dmg: 18, range: 5, cd: 1.4, speed: 3.0, sight: 9, cost: { p: 220, s: 30 }, supply: 0, time: 30, type: 'hero', air: true, magic: true,
+      abilities: ['solar_lance', 'dawnstrike', 'light_step', 'supernova'], hotkey: 'C' },
+  },
+  buildings: {
+    sunforge_citadel: { name: 'Sunforge Citadel', desc: 'Your main base. Trains Sunbearers and heroes, receives Sunstone, radiates sunlight.', hp: 1500, armor: 5, w: 3, h: 3, cost: {}, time: 0, tier: 1, isBase: true, dropoff: true, trains: ['sunbearer'], sight: 9 },
+    solar_crucible: { name: 'Solar Crucible', desc: 'Unit and weapon production. Trains Legionaries and Solar Archers; at Tier 2 forges Sunforged Knights and Pyrestorm Engines. Researches Blessed Steel and Sunforged Plate. +8 supply.', hp: 500, armor: 2, w: 2, h: 2, cost: { p: 120 }, time: 30, tier: 1, trains: ['dawn_legionary', 'solar_archer', 'sunforged_knight', 'pyrestorm_engine'], research: ['blessed_steel', 'sunforged_plate', 'phoenix_fire'], supply: 8, light: 2, hotkey: 'C' },
+    sunstone_vault: { name: 'Sunstone Vault', desc: 'Built on a Sunstone node. Drop-off for Sunbearers; refines a trickle (0.5/s) on its own. +4 supply.', hp: 400, armor: 2, w: 2, h: 2, cost: { p: 90 }, time: 22, tier: 1, needsNode: 'primary', dropoff: true, income: { p: 0.5 }, supply: 4, light: 2, hotkey: 'V' },
+    radiant_shrine: { name: 'Radiant Shrine', desc: 'Trains Sun Priests, heals nearby units (3/s) and generates Dawnlight (0.8/s). Spreads sunlight. Required for Tier 2.', hp: 450, armor: 2, w: 2, h: 2, cost: { p: 110 }, time: 28, tier: 1, trains: ['sun_priest'], income: { s: 0.8 }, aura: { id: 'healing', radius: 5, rate: 3 }, light: 5, supply: 4, hotkey: 'R' },
+    blazing_bastion: { name: 'Blazing Bastion', desc: 'Defensive tower. Beams of concentrated sunlight; +25% damage when standing in sunlight.', hp: 420, armor: 3, w: 1, h: 1, cost: { p: 120 }, time: 22, tier: 1, tower: { dmg: 15, range: 6, cd: 1.3, air: true, layerBonus: 1.25 }, light: 3, sight: 8, hotkey: 'B' },
+    emberline_gate: { name: 'Emberline Gate', desc: 'Wall segment of sun-tempered stone. Burns melee attackers.', hp: 340, armor: 4, w: 1, h: 1, cost: { p: 22 }, time: 6, tier: 1, wall: true, hotkey: 'G' },
+    dawnwatch_beacon: { name: 'Dawnwatch Beacon', desc: 'Sensor tower with long sight. Reveals hidden units and spreads sunlight.', hp: 160, armor: 0, w: 1, h: 1, cost: { p: 60 }, time: 12, tier: 1, sight: 13, detector: true, light: 4, hotkey: 'W' },
+    heliarch_spire: { name: 'Heliarch Spire', desc: 'Technology centre. Researches Daybreak, Radiant Wards and Eternal Dawn; trickles Dawnlight (0.8/s). Required for Tier 3. At Tier 3 forges Solar Titans and, with a Phoenix Feather, the Avatar of Dawn. Channels a Feather every 150s.', hp: 620, armor: 3, w: 2, h: 2, cost: { p: 200, s: 90 }, time: 45, tier: 2, income: { s: 0.8 }, research: ['daybreak', 'radiant_wards', 'eternal_dawn'], trains: ['solar_titan', 'avatar_of_dawn'], catalystGen: { every: 150 }, light: 4, hotkey: 'H' },
+    phoenix_roost: { name: 'Phoenix Roost', desc: '(addition to the canon list) Roost of solar fire for Phoenix Heralds and, at Tier 3, Radiant Angels. +6 supply.', hp: 500, armor: 2, w: 2, h: 2, cost: { p: 180, s: 60 }, time: 40, tier: 2, trains: ['phoenix_herald', 'radiant_angel'], supply: 6, light: 3, hotkey: 'P' },
+    pyrestorm_battery: { name: 'Pyrestorm Battery', desc: 'Long-range artillery structure. Slow, heavy solar shells with splash.', hp: 450, armor: 3, w: 2, h: 2, cost: { p: 200, s: 60 }, time: 35, tier: 2, tower: { dmg: 40, range: 10, cd: 3.5, air: false, splash: 1.5 }, light: 3, sight: 11, hotkey: 'Y' },
+    solar_relay: { name: 'Solar Relay', desc: 'Map-wide power projection. Solar Surge: for 15s all Radiance units gain +20% damage and towers +50%.', hp: 400, armor: 2, w: 2, h: 2, cost: { p: 180, s: 120 }, time: 40, tier: 2, abilities: ['solar_surge'], light: 6, hotkey: 'S' },
+  },
+  research: {
+    blessed_steel: { name: 'Blessed Steel', desc: '+2 damage for all units.', cost: { p: 120 }, time: 30, tier: 1, hotkey: 'B', effect: { dmg: 2 } },
+    sunforged_plate: { name: 'Sunforged Plate', desc: '+1 armor for all units.', cost: { p: 150, s: 30 }, time: 35, tier: 1, hotkey: 'P', effect: { armor: 1 } },
+    daybreak: { name: 'Daybreak', desc: 'Sunlight spreads 50% faster; units in sunlight regenerate +1.5 hp/s more.', cost: { p: 150, s: 60 }, time: 35, tier: 2, hotkey: 'D', effect: { layerGrow: 1.5, regen: 1.5, onAffinity: true } },
+    radiant_wards: { name: 'Radiant Wards', desc: 'All structures gain +3 armor.', cost: { p: 120, s: 40 }, time: 35, tier: 2, hotkey: 'W', effect: { structArmor: 3 } },
+    phoenix_fire: { name: 'Phoenix Fire', desc: 'Healing from priests, angels and shrines is 40% stronger.', cost: { p: 180, s: 100 }, time: 40, tier: 2, hotkey: 'F', effect: { healMul: 1.4 } },
+    eternal_dawn: { name: 'Eternal Dawn', desc: 'Units standing in sunlight gain 12% lifesteal.', cost: { p: 300, s: 200 }, time: 60, tier: 3, hotkey: 'E', effect: { lifesteal: 0.12, onAffinity: true } },
+  },
+};

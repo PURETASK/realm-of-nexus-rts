@@ -1,0 +1,3938 @@
+{
+ "radiance": {
+  "id": "radiance",
+  "name": "Radiance",
+  "tagline": "Domain of the Sun",
+  "blurb": "Celestial light and purity. Sunlight spreads from your structures: your soldiers heal and strike harder in it, blight withers, and nothing hides. Heal, smite, and let the Phoenix rise again.",
+  "color": "#ffcc44",
+  "provisional": true,
+  "affinity": "light",
+  "gathers": true,
+  "nodeBuilding": {
+   "primary": "sunstone_vault",
+   "secondary": null
+  },
+  "resources": {
+   "primary": {
+    "name": "Sunstone",
+    "short": "Sunstone",
+    "icon": "☀"
+   },
+   "secondary": {
+    "name": "Dawnlight",
+    "short": "Light",
+    "icon": "✧"
+   },
+   "catalyst": {
+    "name": "Phoenix Feather",
+    "short": "Feather",
+    "icon": "✺"
+   }
+  },
+  "worker": "sunbearer",
+  "base": "sunforge_citadel",
+  "startRes": {
+   "p": 400,
+   "s": 0,
+   "c": 0
+  },
+  "tips": [
+   "Sunbearers carry Sunstone from nodes to the Citadel or a Sunstone Vault.",
+   "Sunlight spreads from your structures. Your units heal in it, blight burns away, and hidden enemies are revealed.",
+   "Radiant Shrines heal nearby units and generate Dawnlight for your elite and your spells.",
+   "Phoenix Heralds rise again once after death. A Phoenix Feather summons the Avatar of Dawn."
+  ],
+  "tiers": [
+   {
+    "name": "Sunforge Citadel",
+    "supply": 30,
+    "hp": 1500,
+    "terrain": 5
+   },
+   {
+    "name": "Sunforge Citadel — Solar Crown",
+    "supply": 50,
+    "hp": 2200,
+    "terrain": 8,
+    "cost": {
+     "p": 650
+    },
+    "time": 60,
+    "requires": "radiant_shrine",
+    "desc": "Unlocks Tier 2 structures and a second hero. Sunlight spreads farther."
+   },
+   {
+    "name": "Sunforge Citadel — Zenith",
+    "supply": 80,
+    "hp": 3000,
+    "terrain": 12,
+    "cost": {
+     "p": 1200,
+     "s": 400
+    },
+    "time": 90,
+    "requires": "heliarch_spire",
+    "desc": "Unlocks Tier 3 units and the third hero. The Zenith crown pours permanent beams of light."
+   }
+  ],
+  "units": {
+   "sunbearer": {
+    "name": "Sunbearer",
+    "desc": "Worker. Gathers Sunstone and builds structures.",
+    "hp": 45,
+    "armor": 0,
+    "dmg": 3,
+    "range": 1,
+    "cd": 1.2,
+    "speed": 3.2,
+    "sight": 6,
+    "cost": {
+     "p": 50
+    },
+    "supply": 1,
+    "time": 12,
+    "tier": 1,
+    "type": "worker",
+    "hotkey": "S"
+   },
+   "dawn_legionary": {
+    "name": "Dawn Legionary",
+    "desc": "Disciplined shield infantry. Sturdy line-holder.",
+    "hp": 80,
+    "armor": 2,
+    "dmg": 8,
+    "range": 1,
+    "cd": 1,
+    "speed": 3,
+    "sight": 6,
+    "cost": {
+     "p": 60
+    },
+    "supply": 1,
+    "time": 12,
+    "tier": 1,
+    "type": "infantry",
+    "hotkey": "L"
+   },
+   "solar_archer": {
+    "name": "Solar Archer",
+    "desc": "Ranged. Arrows of focused light strike ground and air.",
+    "hp": 45,
+    "armor": 0,
+    "dmg": 9,
+    "range": 5,
+    "cd": 1.3,
+    "speed": 3,
+    "sight": 7,
+    "cost": {
+     "p": 65
+    },
+    "supply": 1,
+    "time": 13,
+    "tier": 1,
+    "type": "ranged",
+    "air": true,
+    "hotkey": "A"
+   },
+   "sun_priest": {
+    "name": "Sun Priest",
+    "desc": "Healer. Mends wounded allies with sunlight (auto). Weak attack.",
+    "hp": 55,
+    "armor": 0,
+    "dmg": 5,
+    "range": 4,
+    "cd": 1.4,
+    "speed": 3,
+    "sight": 7,
+    "cost": {
+     "p": 80,
+     "s": 10
+    },
+    "supply": 1,
+    "time": 16,
+    "tier": 1,
+    "type": "caster",
+    "air": true,
+    "magic": true,
+    "heal": 14,
+    "hotkey": "P"
+   },
+   "sunforged_knight": {
+    "name": "Sunforged Knight",
+    "desc": "Heavy cavalry in blazing plate. Fast, armored charge.",
+    "hp": 240,
+    "armor": 5,
+    "dmg": 22,
+    "range": 1,
+    "cd": 1.1,
+    "speed": 3.6,
+    "sight": 7,
+    "cost": {
+     "p": 170,
+     "s": 40
+    },
+    "supply": 3,
+    "time": 26,
+    "tier": 2,
+    "type": "infantry",
+    "hotkey": "K"
+   },
+   "phoenix_herald": {
+    "name": "Phoenix Herald",
+    "desc": "Flying firebird. Splash fire on ground and air. Rises again once after death.",
+    "hp": 150,
+    "armor": 1,
+    "dmg": 16,
+    "range": 3,
+    "cd": 1.2,
+    "speed": 4.6,
+    "sight": 8,
+    "cost": {
+     "p": 140,
+     "s": 60
+    },
+    "supply": 2,
+    "time": 24,
+    "tier": 2,
+    "type": "flying",
+    "flying": true,
+    "air": true,
+    "splash": 1,
+    "magic": true,
+    "rebirth": true,
+    "hotkey": "H"
+   },
+   "pyrestorm_engine": {
+    "name": "Pyrestorm Engine",
+    "desc": "Siege engine hurling solar fire. Splash, double vs structures.",
+    "hp": 130,
+    "armor": 1,
+    "dmg": 42,
+    "range": 8,
+    "minRange": 2,
+    "cd": 3.2,
+    "speed": 1.9,
+    "sight": 9,
+    "cost": {
+     "p": 160,
+     "s": 80
+    },
+    "supply": 3,
+    "time": 30,
+    "tier": 2,
+    "type": "siege",
+    "splash": 1.5,
+    "vsBuilding": 2,
+    "magic": true,
+    "hotkey": "E"
+   },
+   "radiant_angel": {
+    "name": "Radiant Angel",
+    "desc": "Celestial flier. Smites with holy light and mends allies between strikes.",
+    "hp": 380,
+    "armor": 4,
+    "dmg": 34,
+    "range": 4,
+    "cd": 1.5,
+    "speed": 3.8,
+    "sight": 9,
+    "cost": {
+     "p": 300,
+     "s": 220
+    },
+    "supply": 5,
+    "time": 45,
+    "tier": 3,
+    "type": "flying",
+    "flying": true,
+    "air": true,
+    "magic": true,
+    "heal": 25,
+    "vsUndead": 1.5,
+    "hotkey": "R"
+   },
+   "solar_titan": {
+    "name": "Solar Titan",
+    "desc": "Colossal sun-forged construct. Splash melee, carries sunlight with it.",
+    "hp": 700,
+    "armor": 6,
+    "dmg": 45,
+    "range": 1.5,
+    "cd": 1.6,
+    "speed": 2.4,
+    "sight": 8,
+    "cost": {
+     "p": 420,
+     "s": 260
+    },
+    "supply": 6,
+    "time": 55,
+    "tier": 3,
+    "type": "infantry",
+    "splash": 1.5,
+    "spreads": true,
+    "mechanical": true,
+    "hotkey": "T"
+   },
+   "avatar_of_dawn": {
+    "name": "Avatar of Dawn",
+    "desc": "One may exist. The sun made flesh: burns enemies and heals allies around it.",
+    "hp": 1300,
+    "armor": 7,
+    "dmg": 65,
+    "range": 2,
+    "cd": 1.5,
+    "speed": 2.6,
+    "sight": 10,
+    "cost": {
+     "p": 500,
+     "s": 300,
+     "c": 1
+    },
+    "supply": 8,
+    "time": 60,
+    "tier": 3,
+    "type": "infantry",
+    "splash": 2,
+    "unique": true,
+    "spreads": true,
+    "aura": {
+     "id": "dawn_aura",
+     "radius": 5
+    },
+    "hotkey": "V"
+   }
+  },
+  "heroes": {
+   "aurelian": {
+    "name": "Aurelian Dawnblade",
+    "title": "Sunforged Champion",
+    "role": "Military",
+    "desc": "Frontline paladin. Smites, rallies and calls down the judgment of the sun.",
+    "hp": 400,
+    "armor": 4,
+    "dmg": 26,
+    "range": 1,
+    "cd": 1.1,
+    "speed": 3.3,
+    "sight": 8,
+    "cost": {
+     "p": 250
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "spreads": true,
+    "abilities": [
+     "sun_smite",
+     "rally_of_dawn",
+     "blinding_flare",
+     "judgment_of_the_sun"
+    ],
+    "hotkey": "D"
+   },
+   "seraphine": {
+    "name": "Seraphine Lightkeeper",
+    "title": "Dawn Oracle",
+    "role": "Economic / Support",
+    "desc": "Healer and steward. Blesses the tithe, sanctifies ground, and raises the fallen.",
+    "hp": 250,
+    "armor": 1,
+    "dmg": 10,
+    "range": 4,
+    "cd": 1.3,
+    "speed": 3.1,
+    "sight": 8,
+    "cost": {
+     "p": 200
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "air": true,
+    "magic": true,
+    "abilities": [
+     "healing_light",
+     "sanctified_ground",
+     "blessed_tithe",
+     "resurrection"
+    ],
+    "hotkey": "O"
+   },
+   "solaris": {
+    "name": "Solaris",
+    "title": "the Archon",
+    "role": "Magical / Utility",
+    "desc": "Ranged sun-mage. Lances of light, dawn bursts, light-steps and the Supernova.",
+    "hp": 260,
+    "armor": 1,
+    "dmg": 18,
+    "range": 5,
+    "cd": 1.4,
+    "speed": 3,
+    "sight": 9,
+    "cost": {
+     "p": 220,
+     "s": 30
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "air": true,
+    "magic": true,
+    "abilities": [
+     "solar_lance",
+     "dawnstrike",
+     "light_step",
+     "supernova"
+    ],
+    "hotkey": "C"
+   }
+  },
+  "buildings": {
+   "sunforge_citadel": {
+    "name": "Sunforge Citadel",
+    "desc": "Your main base. Trains Sunbearers and heroes, receives Sunstone, radiates sunlight.",
+    "hp": 1500,
+    "armor": 5,
+    "w": 3,
+    "h": 3,
+    "cost": {},
+    "time": 0,
+    "tier": 1,
+    "isBase": true,
+    "dropoff": true,
+    "trains": [
+     "sunbearer"
+    ],
+    "sight": 9
+   },
+   "solar_crucible": {
+    "name": "Solar Crucible",
+    "desc": "Unit and weapon production. Trains Legionaries and Solar Archers; at Tier 2 forges Sunforged Knights and Pyrestorm Engines. Researches Blessed Steel and Sunforged Plate. +8 supply.",
+    "hp": 500,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 120
+    },
+    "time": 30,
+    "tier": 1,
+    "trains": [
+     "dawn_legionary",
+     "solar_archer",
+     "sunforged_knight",
+     "pyrestorm_engine"
+    ],
+    "research": [
+     "blessed_steel",
+     "sunforged_plate",
+     "phoenix_fire"
+    ],
+    "supply": 8,
+    "light": 2,
+    "hotkey": "C"
+   },
+   "sunstone_vault": {
+    "name": "Sunstone Vault",
+    "desc": "Built on a Sunstone node. Drop-off for Sunbearers; refines a trickle (0.5/s) on its own. +4 supply.",
+    "hp": 400,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 90
+    },
+    "time": 22,
+    "tier": 1,
+    "needsNode": "primary",
+    "dropoff": true,
+    "income": {
+     "p": 0.5
+    },
+    "supply": 4,
+    "light": 2,
+    "hotkey": "V"
+   },
+   "radiant_shrine": {
+    "name": "Radiant Shrine",
+    "desc": "Trains Sun Priests, heals nearby units (3/s) and generates Dawnlight (0.8/s). Spreads sunlight. Required for Tier 2.",
+    "hp": 450,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 110
+    },
+    "time": 28,
+    "tier": 1,
+    "trains": [
+     "sun_priest"
+    ],
+    "income": {
+     "s": 0.8
+    },
+    "aura": {
+     "id": "healing",
+     "radius": 5,
+     "rate": 3
+    },
+    "light": 5,
+    "supply": 4,
+    "hotkey": "R"
+   },
+   "blazing_bastion": {
+    "name": "Blazing Bastion",
+    "desc": "Defensive tower. Beams of concentrated sunlight; +25% damage when standing in sunlight.",
+    "hp": 420,
+    "armor": 3,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 120
+    },
+    "time": 22,
+    "tier": 1,
+    "tower": {
+     "dmg": 15,
+     "range": 6,
+     "cd": 1.3,
+     "air": true,
+     "layerBonus": 1.25
+    },
+    "light": 3,
+    "sight": 8,
+    "hotkey": "B"
+   },
+   "emberline_gate": {
+    "name": "Emberline Gate",
+    "desc": "Wall segment of sun-tempered stone. Burns melee attackers.",
+    "hp": 340,
+    "armor": 4,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 22
+    },
+    "time": 6,
+    "tier": 1,
+    "wall": true,
+    "hotkey": "G"
+   },
+   "dawnwatch_beacon": {
+    "name": "Dawnwatch Beacon",
+    "desc": "Sensor tower with long sight. Reveals hidden units and spreads sunlight.",
+    "hp": 160,
+    "armor": 0,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 60
+    },
+    "time": 12,
+    "tier": 1,
+    "sight": 13,
+    "detector": true,
+    "light": 4,
+    "hotkey": "W"
+   },
+   "heliarch_spire": {
+    "name": "Heliarch Spire",
+    "desc": "Technology centre. Researches Daybreak, Radiant Wards and Eternal Dawn; trickles Dawnlight (0.8/s). Required for Tier 3. At Tier 3 forges Solar Titans and, with a Phoenix Feather, the Avatar of Dawn. Channels a Feather every 150s.",
+    "hp": 620,
+    "armor": 3,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 200,
+     "s": 90
+    },
+    "time": 45,
+    "tier": 2,
+    "income": {
+     "s": 0.8
+    },
+    "research": [
+     "daybreak",
+     "radiant_wards",
+     "eternal_dawn"
+    ],
+    "trains": [
+     "solar_titan",
+     "avatar_of_dawn"
+    ],
+    "catalystGen": {
+     "every": 150
+    },
+    "light": 4,
+    "hotkey": "H"
+   },
+   "phoenix_roost": {
+    "name": "Phoenix Roost",
+    "desc": "(addition to the canon list) Roost of solar fire for Phoenix Heralds and, at Tier 3, Radiant Angels. +6 supply.",
+    "hp": 500,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 180,
+     "s": 60
+    },
+    "time": 40,
+    "tier": 2,
+    "trains": [
+     "phoenix_herald",
+     "radiant_angel"
+    ],
+    "supply": 6,
+    "light": 3,
+    "hotkey": "P"
+   },
+   "pyrestorm_battery": {
+    "name": "Pyrestorm Battery",
+    "desc": "Long-range artillery structure. Slow, heavy solar shells with splash.",
+    "hp": 450,
+    "armor": 3,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 200,
+     "s": 60
+    },
+    "time": 35,
+    "tier": 2,
+    "tower": {
+     "dmg": 40,
+     "range": 10,
+     "cd": 3.5,
+     "air": false,
+     "splash": 1.5
+    },
+    "light": 3,
+    "sight": 11,
+    "hotkey": "Y"
+   },
+   "solar_relay": {
+    "name": "Solar Relay",
+    "desc": "Map-wide power projection. Solar Surge: for 15s all Radiance units gain +20% damage and towers +50%.",
+    "hp": 400,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 180,
+     "s": 120
+    },
+    "time": 40,
+    "tier": 2,
+    "abilities": [
+     "solar_surge"
+    ],
+    "light": 6,
+    "hotkey": "S"
+   }
+  },
+  "research": {
+   "blessed_steel": {
+    "name": "Blessed Steel",
+    "desc": "+2 damage for all units.",
+    "cost": {
+     "p": 120
+    },
+    "time": 30,
+    "tier": 1,
+    "hotkey": "B",
+    "effect": {
+     "dmg": 2
+    }
+   },
+   "sunforged_plate": {
+    "name": "Sunforged Plate",
+    "desc": "+1 armor for all units.",
+    "cost": {
+     "p": 150,
+     "s": 30
+    },
+    "time": 35,
+    "tier": 1,
+    "hotkey": "P",
+    "effect": {
+     "armor": 1
+    }
+   },
+   "daybreak": {
+    "name": "Daybreak",
+    "desc": "Sunlight spreads 50% faster; units in sunlight regenerate +1.5 hp/s more.",
+    "cost": {
+     "p": 150,
+     "s": 60
+    },
+    "time": 35,
+    "tier": 2,
+    "hotkey": "D",
+    "effect": {
+     "layerGrow": 1.5,
+     "regen": 1.5,
+     "onAffinity": true
+    }
+   },
+   "radiant_wards": {
+    "name": "Radiant Wards",
+    "desc": "All structures gain +3 armor.",
+    "cost": {
+     "p": 120,
+     "s": 40
+    },
+    "time": 35,
+    "tier": 2,
+    "hotkey": "W",
+    "effect": {
+     "structArmor": 3
+    }
+   },
+   "phoenix_fire": {
+    "name": "Phoenix Fire",
+    "desc": "Healing from priests, angels and shrines is 40% stronger.",
+    "cost": {
+     "p": 180,
+     "s": 100
+    },
+    "time": 40,
+    "tier": 2,
+    "hotkey": "F",
+    "effect": {
+     "healMul": 1.4
+    }
+   },
+   "eternal_dawn": {
+    "name": "Eternal Dawn",
+    "desc": "Units standing in sunlight gain 12% lifesteal.",
+    "cost": {
+     "p": 300,
+     "s": 200
+    },
+    "time": 60,
+    "tier": 3,
+    "hotkey": "E",
+    "effect": {
+     "lifesteal": 0.12,
+     "onAffinity": true
+    }
+   }
+  }
+ },
+ "sanctuary": {
+  "id": "sanctuary",
+  "name": "Sanctuary",
+  "tagline": "Domain of Light",
+  "blurb": "Divine order and celestial protection. Every soldier carries a holy ward that absorbs damage and recharges. Consecrated ground shields the faithful and banishes corruption; the Eternal Bell rallies the whole host.",
+  "color": "#e8e4ff",
+  "provisional": true,
+  "affinity": "light",
+  "gathers": true,
+  "nodeBuilding": {
+   "primary": "sanctified_vault",
+   "secondary": null
+  },
+  "resources": {
+   "primary": {
+    "name": "Sacred Crystals",
+    "short": "Crystals",
+    "icon": "✝"
+   },
+   "secondary": {
+    "name": "Holy Light",
+    "short": "Light",
+    "icon": "☼"
+   },
+   "catalyst": {
+    "name": "Seraph's Tear",
+    "short": "Tear",
+    "icon": "❂"
+   }
+  },
+  "worker": "pilgrim",
+  "base": "luminarch_citadel",
+  "startRes": {
+   "p": 400,
+   "s": 0,
+   "c": 0
+  },
+  "tips": [
+   "Pilgrims carry Sacred Crystals from nodes to the Citadel or a Sanctified Vault.",
+   "Your units have wards: a blue shield bar that soaks damage and recharges after 5s out of combat.",
+   "Holy ground spreads from your structures: allies take less damage on it, undead deal less, and hidden foes are revealed.",
+   "The Eternal Bell Spire rallies your army. A Seraph's Tear calls down the Archangel."
+  ],
+  "tiers": [
+   {
+    "name": "Luminarch Citadel",
+    "supply": 30,
+    "hp": 1500,
+    "terrain": 5
+   },
+   {
+    "name": "Luminarch Citadel — Cathedral",
+    "supply": 50,
+    "hp": 2200,
+    "terrain": 8,
+    "cost": {
+     "p": 650
+    },
+    "time": 60,
+    "requires": "sacrosanct_shrine",
+    "desc": "Unlocks Tier 2 structures and a second hero. Holy ground spreads farther."
+   },
+   {
+    "name": "Luminarch Citadel — Celestial Sanctum",
+    "supply": 80,
+    "hp": 3000,
+    "terrain": 12,
+    "cost": {
+     "p": 1200,
+     "s": 400
+    },
+    "time": 90,
+    "requires": "concord_hall",
+    "desc": "Unlocks Tier 3 units and the third hero. The Citadel gathers Seraph's Tears."
+   }
+  ],
+  "units": {
+   "pilgrim": {
+    "name": "Pilgrim",
+    "desc": "Worker. Gathers Sacred Crystals and builds structures.",
+    "hp": 45,
+    "armor": 0,
+    "dmg": 3,
+    "range": 1,
+    "cd": 1.2,
+    "speed": 3.2,
+    "sight": 6,
+    "cost": {
+     "p": 50
+    },
+    "supply": 1,
+    "time": 12,
+    "tier": 1,
+    "type": "worker",
+    "shield": 6,
+    "hotkey": "P"
+   },
+   "temple_guard": {
+    "name": "Temple Guard",
+    "desc": "Warded shield infantry. Steady and hard to break.",
+    "hp": 70,
+    "armor": 2,
+    "dmg": 7,
+    "range": 1,
+    "cd": 1,
+    "speed": 3,
+    "sight": 6,
+    "cost": {
+     "p": 60
+    },
+    "supply": 1,
+    "time": 12,
+    "tier": 1,
+    "type": "infantry",
+    "shield": 15,
+    "hotkey": "T"
+   },
+   "seraphic_archer": {
+    "name": "Seraphic Archer",
+    "desc": "Ranged. Blessed arrows strike ground and air.",
+    "hp": 45,
+    "armor": 0,
+    "dmg": 9,
+    "range": 5,
+    "cd": 1.3,
+    "speed": 3.1,
+    "sight": 7,
+    "cost": {
+     "p": 65
+    },
+    "supply": 1,
+    "time": 13,
+    "tier": 1,
+    "type": "ranged",
+    "air": true,
+    "shield": 8,
+    "hotkey": "A"
+   },
+   "cleric": {
+    "name": "Cleric",
+    "desc": "Healer. Mends allies with Holy Light (auto). Weak attack, strong vs undead.",
+    "hp": 55,
+    "armor": 0,
+    "dmg": 6,
+    "range": 4,
+    "cd": 1.4,
+    "speed": 3,
+    "sight": 7,
+    "cost": {
+     "p": 80,
+     "s": 10
+    },
+    "supply": 1,
+    "time": 16,
+    "tier": 1,
+    "type": "caster",
+    "air": true,
+    "magic": true,
+    "heal": 14,
+    "vsUndead": 2,
+    "shield": 8,
+    "hotkey": "C"
+   },
+   "celestial_paladin": {
+    "name": "Celestial Paladin",
+    "desc": "Heavily warded holy knight. The wall of the faithful.",
+    "hp": 230,
+    "armor": 5,
+    "dmg": 20,
+    "range": 1,
+    "cd": 1.1,
+    "speed": 3,
+    "sight": 7,
+    "cost": {
+     "p": 170,
+     "s": 40
+    },
+    "supply": 3,
+    "time": 26,
+    "tier": 2,
+    "type": "infantry",
+    "shield": 70,
+    "hotkey": "L"
+   },
+   "divine_griffin": {
+    "name": "Divine Griffin",
+    "desc": "Flying beast of heaven. Dives on ground and air targets.",
+    "hp": 170,
+    "armor": 2,
+    "dmg": 20,
+    "range": 1.5,
+    "cd": 1.2,
+    "speed": 4.6,
+    "sight": 8,
+    "cost": {
+     "p": 150,
+     "s": 60
+    },
+    "supply": 3,
+    "time": 26,
+    "tier": 2,
+    "type": "flying",
+    "flying": true,
+    "air": true,
+    "shield": 30,
+    "hotkey": "G"
+   },
+   "inquisitor": {
+    "name": "Inquisitor",
+    "desc": "Holy caster. Searing light, double damage to the undead.",
+    "hp": 80,
+    "armor": 1,
+    "dmg": 14,
+    "range": 5,
+    "cd": 1.3,
+    "speed": 3,
+    "sight": 8,
+    "cost": {
+     "p": 130,
+     "s": 50
+    },
+    "supply": 2,
+    "time": 22,
+    "tier": 2,
+    "type": "caster",
+    "air": true,
+    "magic": true,
+    "vsUndead": 2,
+    "shield": 20,
+    "hotkey": "I"
+   },
+   "blessed_trebuchet": {
+    "name": "Blessed Trebuchet",
+    "desc": "Consecrated siege engine. Splash, double vs structures.",
+    "hp": 130,
+    "armor": 1,
+    "dmg": 42,
+    "range": 8,
+    "minRange": 2,
+    "cd": 3.2,
+    "speed": 1.9,
+    "sight": 9,
+    "cost": {
+     "p": 160,
+     "s": 80
+    },
+    "supply": 3,
+    "time": 30,
+    "tier": 2,
+    "type": "siege",
+    "splash": 1.5,
+    "vsBuilding": 2,
+    "hotkey": "B"
+   },
+   "seraph": {
+    "name": "Seraph",
+    "desc": "Winged celestial. Smites with light and heals allies between strikes.",
+    "hp": 360,
+    "armor": 4,
+    "dmg": 32,
+    "range": 4,
+    "cd": 1.5,
+    "speed": 3.8,
+    "sight": 9,
+    "cost": {
+     "p": 300,
+     "s": 220
+    },
+    "supply": 5,
+    "time": 45,
+    "tier": 3,
+    "type": "flying",
+    "flying": true,
+    "air": true,
+    "magic": true,
+    "heal": 25,
+    "vsUndead": 1.5,
+    "shield": 90,
+    "hotkey": "S"
+   },
+   "exemplar": {
+    "name": "Exemplar",
+    "desc": "Champion of the Concord. Immense ward, splash strikes, carries holy ground.",
+    "hp": 600,
+    "armor": 7,
+    "dmg": 38,
+    "range": 1.5,
+    "cd": 1.5,
+    "speed": 2.6,
+    "sight": 8,
+    "cost": {
+     "p": 420,
+     "s": 260
+    },
+    "supply": 6,
+    "time": 55,
+    "tier": 3,
+    "type": "infantry",
+    "splash": 1.2,
+    "shield": 150,
+    "spreads": true,
+    "hotkey": "E"
+   },
+   "archangel": {
+    "name": "Archangel",
+    "desc": "One may exist. Heaven's general: an aura that shields allies and burns the unholy.",
+    "hp": 1300,
+    "armor": 7,
+    "dmg": 62,
+    "range": 2,
+    "cd": 1.5,
+    "speed": 3,
+    "sight": 10,
+    "cost": {
+     "p": 500,
+     "s": 300,
+     "c": 1
+    },
+    "supply": 8,
+    "time": 60,
+    "tier": 3,
+    "type": "flying",
+    "flying": true,
+    "air": true,
+    "splash": 2,
+    "magic": true,
+    "unique": true,
+    "shield": 300,
+    "spreads": true,
+    "aura": {
+     "id": "archangel_aura",
+     "radius": 5
+    },
+    "hotkey": "V"
+   }
+  },
+  "heroes": {
+   "isolde": {
+    "name": "Commander Isolde Vale",
+    "title": "Shield of the Concord",
+    "role": "Military",
+    "desc": "Frontline commander. Holy strikes, shield walls, banners of order and divine intervention.",
+    "hp": 400,
+    "armor": 4,
+    "dmg": 25,
+    "range": 1,
+    "cd": 1.1,
+    "speed": 3.2,
+    "sight": 8,
+    "cost": {
+     "p": 250
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "shield": 100,
+    "spreads": true,
+    "abilities": [
+     "holy_strike",
+     "shield_wall",
+     "banner_of_order",
+     "divine_intervention"
+    ],
+    "hotkey": "I"
+   },
+   "adaline": {
+    "name": "Mother Adaline",
+    "title": "Voice of the Bell",
+    "role": "Economic / Support",
+    "desc": "Healer and steward. Mends wounds, consecrates ground, blesses the tithe and raises the fallen.",
+    "hp": 250,
+    "armor": 1,
+    "dmg": 10,
+    "range": 4,
+    "cd": 1.3,
+    "speed": 3.1,
+    "sight": 8,
+    "cost": {
+     "p": 200
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "air": true,
+    "magic": true,
+    "shield": 60,
+    "abilities": [
+     "mend_wounds",
+     "consecrate",
+     "tithe_of_faith",
+     "mass_resurrection"
+    ],
+    "hotkey": "M"
+   },
+   "cassiel": {
+    "name": "Oracle Cassiel",
+    "title": "Eye of Heaven",
+    "role": "Magical / Utility",
+    "desc": "Ranged oracle. Smites, banishes corruption, steps through light and calls the wrath of heaven.",
+    "hp": 260,
+    "armor": 1,
+    "dmg": 18,
+    "range": 5,
+    "cd": 1.4,
+    "speed": 3,
+    "sight": 9,
+    "cost": {
+     "p": 220,
+     "s": 30
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "air": true,
+    "magic": true,
+    "shield": 60,
+    "abilities": [
+     "smite",
+     "banish_corruption",
+     "celestial_step",
+     "wrath_of_heaven"
+    ],
+    "hotkey": "O"
+   }
+  },
+  "buildings": {
+   "luminarch_citadel": {
+    "name": "Luminarch Citadel",
+    "desc": "Your main base. Trains Pilgrims and heroes, receives crystals, consecrates the ground.",
+    "hp": 1500,
+    "armor": 5,
+    "w": 3,
+    "h": 3,
+    "cost": {},
+    "time": 0,
+    "tier": 1,
+    "isBase": true,
+    "dropoff": true,
+    "trains": [
+     "pilgrim"
+    ],
+    "sight": 9
+   },
+   "beaconwright_hall": {
+    "name": "Beaconwright Hall",
+    "desc": "Unit production. Trains Temple Guards and Seraphic Archers. Researches Blessed Arms. +8 supply.",
+    "hp": 500,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 120
+    },
+    "time": 30,
+    "tier": 1,
+    "trains": [
+     "temple_guard",
+     "seraphic_archer"
+    ],
+    "research": [
+     "blessed_arms",
+     "aegis_plating"
+    ],
+    "supply": 8,
+    "light": 2,
+    "hotkey": "B"
+   },
+   "sanctified_vault": {
+    "name": "Sanctified Vault",
+    "desc": "Built on a crystal node. Drop-off for Pilgrims; refines a trickle (0.5/s). +4 supply.",
+    "hp": 400,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 90
+    },
+    "time": 22,
+    "tier": 1,
+    "needsNode": "primary",
+    "dropoff": true,
+    "income": {
+     "p": 0.5
+    },
+    "supply": 4,
+    "light": 2,
+    "hotkey": "V"
+   },
+   "sacrosanct_shrine": {
+    "name": "Sacrosanct Shrine",
+    "desc": "Healing and blessing. Trains Clerics, heals nearby (3/s), generates Holy Light (0.8/s). Consecrates ground. Required for Tier 2.",
+    "hp": 450,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 110
+    },
+    "time": 28,
+    "tier": 1,
+    "trains": [
+     "cleric"
+    ],
+    "income": {
+     "s": 0.8
+    },
+    "aura": {
+     "id": "healing",
+     "radius": 5,
+     "rate": 3
+    },
+    "light": 5,
+    "supply": 4,
+    "hotkey": "S"
+   },
+   "radiant_tower": {
+    "name": "Radiant Tower",
+    "desc": "Defensive tower. Beams of holy light against ground and air; +25% on holy ground.",
+    "hp": 420,
+    "armor": 3,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 120
+    },
+    "time": 22,
+    "tier": 1,
+    "tower": {
+     "dmg": 15,
+     "range": 6,
+     "cd": 1.3,
+     "air": true,
+     "layerBonus": 1.25
+    },
+    "light": 3,
+    "sight": 8,
+    "hotkey": "R"
+   },
+   "refuge_gatehouse": {
+    "name": "Refuge Gatehouse",
+    "desc": "Wall segment of white marble. Consecrates the ground beside it.",
+    "hp": 360,
+    "armor": 4,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 22
+    },
+    "time": 6,
+    "tier": 1,
+    "wall": true,
+    "light": 1.5,
+    "hotkey": "G"
+   },
+   "lightborne_relay": {
+    "name": "Lightborne Relay",
+    "desc": "Map-wide illumination. Long sight, reveals hidden units, spreads holy ground.",
+    "hp": 160,
+    "armor": 0,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 60
+    },
+    "time": 12,
+    "tier": 1,
+    "sight": 13,
+    "detector": true,
+    "light": 4,
+    "hotkey": "L"
+   },
+   "concord_hall": {
+    "name": "Concord Hall",
+    "desc": "Technology centre. Researches Greater Wards and Divine Favor; trickles Holy Light (0.8/s). Required for Tier 3.",
+    "hp": 520,
+    "armor": 3,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 200,
+     "s": 90
+    },
+    "time": 45,
+    "tier": 2,
+    "income": {
+     "s": 0.8
+    },
+    "research": [
+     "greater_wards",
+     "divine_favor",
+     "sanctified_walls"
+    ],
+    "light": 4,
+    "hotkey": "C"
+   },
+   "hall_of_luminaries": {
+    "name": "Hall of Luminaries",
+    "desc": "Hero and champion command. Trains Celestial Paladins and Inquisitors; at Tier 3 Exemplars. +6 supply.",
+    "hp": 650,
+    "armor": 3,
+    "w": 3,
+    "h": 3,
+    "cost": {
+     "p": 220,
+     "s": 80
+    },
+    "time": 45,
+    "tier": 2,
+    "trains": [
+     "celestial_paladin",
+     "inquisitor",
+     "exemplar"
+    ],
+    "supply": 6,
+    "light": 3,
+    "hotkey": "H"
+   },
+   "griffin_aerie": {
+    "name": "Griffin Aerie",
+    "desc": "(invented) Eyrie of Divine Griffins; at Tier 3 Seraphs. +6 supply.",
+    "hp": 500,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 180,
+     "s": 60
+    },
+    "time": 40,
+    "tier": 2,
+    "trains": [
+     "divine_griffin",
+     "seraph"
+    ],
+    "supply": 6,
+    "light": 3,
+    "hotkey": "A"
+   },
+   "siege_chapel": {
+    "name": "Siege Chapel",
+    "desc": "(invented) Consecrates Blessed Trebuchets. +4 supply.",
+    "hp": 500,
+    "armor": 3,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 180,
+     "s": 60
+    },
+    "time": 40,
+    "tier": 2,
+    "trains": [
+     "blessed_trebuchet"
+    ],
+    "supply": 4,
+    "light": 2,
+    "hotkey": "T"
+   },
+   "eternal_bell_spire": {
+    "name": "Eternal Bell Spire",
+    "desc": "Global rally. Toll the Bell: for 15s every Sanctuary unit gains +20% damage and +15% speed. Nearby allies attack faster.",
+    "hp": 450,
+    "armor": 3,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 180,
+     "s": 120
+    },
+    "time": 40,
+    "tier": 2,
+    "abilities": [
+     "toll_the_bell"
+    ],
+    "aura": {
+     "id": "bell",
+     "radius": 6
+    },
+    "light": 5,
+    "hotkey": "E"
+   },
+   "altar_of_tears": {
+    "name": "Altar of Tears",
+    "desc": "(invented) Gathers a Seraph's Tear every 150s (holds 1). Calls the Archangel. Researches Martyrdom.",
+    "hp": 600,
+    "armor": 3,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 300,
+     "s": 250
+    },
+    "time": 60,
+    "tier": 3,
+    "catalystGen": {
+     "every": 150
+    },
+    "trains": [
+     "archangel"
+    ],
+    "research": [
+     "martyrdom"
+    ],
+    "light": 5,
+    "hotkey": "W"
+   }
+  },
+  "research": {
+   "blessed_arms": {
+    "name": "Blessed Arms",
+    "desc": "+2 damage for all units.",
+    "cost": {
+     "p": 120
+    },
+    "time": 30,
+    "tier": 1,
+    "hotkey": "B",
+    "effect": {
+     "dmg": 2
+    }
+   },
+   "aegis_plating": {
+    "name": "Aegis Plating",
+    "desc": "+1 armor for all units.",
+    "cost": {
+     "p": 150,
+     "s": 30
+    },
+    "time": 35,
+    "tier": 1,
+    "hotkey": "A",
+    "effect": {
+     "armor": 1
+    }
+   },
+   "greater_wards": {
+    "name": "Greater Wards",
+    "desc": "Unit wards are 50% larger.",
+    "cost": {
+     "p": 180,
+     "s": 80
+    },
+    "time": 40,
+    "tier": 2,
+    "hotkey": "W",
+    "effect": {
+     "shieldMul": 1.5
+    }
+   },
+   "divine_favor": {
+    "name": "Divine Favor",
+    "desc": "Healing from clerics, seraphs and shrines is 40% stronger.",
+    "cost": {
+     "p": 160,
+     "s": 80
+    },
+    "time": 40,
+    "tier": 2,
+    "hotkey": "D",
+    "effect": {
+     "healMul": 1.4
+    }
+   },
+   "sanctified_walls": {
+    "name": "Sanctified Walls",
+    "desc": "All structures gain +3 armor.",
+    "cost": {
+     "p": 120,
+     "s": 40
+    },
+    "time": 35,
+    "tier": 2,
+    "hotkey": "S",
+    "effect": {
+     "structArmor": 3
+    }
+   },
+   "martyrdom": {
+    "name": "Martyrdom",
+    "desc": "Units on holy ground gain 12% lifesteal and +1 hp/s.",
+    "cost": {
+     "p": 300,
+     "s": 200
+    },
+    "time": 60,
+    "tier": 3,
+    "hotkey": "M",
+    "effect": {
+     "lifesteal": 0.12,
+     "regen": 1,
+     "onAffinity": true
+    }
+   }
+  }
+ },
+ "verdance": {
+  "id": "verdance",
+  "name": "Verdance",
+  "tagline": "Domain of the Everwood",
+  "blurb": "Living architecture and the balance of the wild. Your structures grow on their own, the grove spreads beneath your feet to slow foes and mend allies, and Sylvan Waystones let your host step across the map.",
+  "color": "#7ee08a",
+  "provisional": true,
+  "affinity": "grove",
+  "gathers": true,
+  "nodeBuilding": {
+   "primary": "groveheart_nexus",
+   "secondary": null
+  },
+  "resources": {
+   "primary": {
+    "name": "Silver Sap",
+    "short": "Sap",
+    "icon": "❦"
+   },
+   "secondary": {
+    "name": "Everwood Essence",
+    "short": "Essence",
+    "icon": "◉"
+   },
+   "catalyst": {
+    "name": "World Seed",
+    "short": "Seed",
+    "icon": "✿"
+   }
+  },
+  "worker": "tender",
+  "base": "everwood_spire",
+  "startRes": {
+   "p": 400,
+   "s": 0,
+   "c": 0
+  },
+  "tips": [
+   "Tenders carry Silver Sap from nodes to the Spire. Buildings keep growing even after Tenders walk away.",
+   "The grove spreads from your structures: allies heal and move faster on it, enemies are slowed by vines.",
+   "Two Sylvan Waystones link into a teleport network. Cycle Sanctuaries heal everything nearby.",
+   "Spirits of the Everwood and beasts of the Wild Den are your strike force. A World Seed wakes the Heart of the Everwood."
+  ],
+  "tiers": [
+   {
+    "name": "Everwood Spire",
+    "supply": 30,
+    "hp": 1600,
+    "terrain": 5
+   },
+   {
+    "name": "Everwood Spire — Silver Bloom",
+    "supply": 50,
+    "hp": 2300,
+    "terrain": 8,
+    "cost": {
+     "p": 650
+    },
+    "time": 60,
+    "requires": "verdant_sigil_hall",
+    "desc": "Branches grow out and silver sap flows. Unlocks Tier 2 structures and a second hero."
+   },
+   {
+    "name": "Everwood Spire — Luminous Canopy",
+    "supply": 80,
+    "hp": 3100,
+    "terrain": 12,
+    "cost": {
+     "p": 1200,
+     "s": 400
+    },
+    "time": 90,
+    "requires": "cycle_sanctuary",
+    "desc": "The canopy blossoms. Unlocks Tier 3 units and the third hero; the Spire cradles World Seeds."
+   }
+  ],
+  "units": {
+   "tender": {
+    "name": "Tender",
+    "desc": "Worker. Gathers Silver Sap and plants structures.",
+    "hp": 45,
+    "armor": 0,
+    "dmg": 3,
+    "range": 1,
+    "cd": 1.2,
+    "speed": 3.4,
+    "sight": 6,
+    "cost": {
+     "p": 50
+    },
+    "supply": 1,
+    "time": 12,
+    "tier": 1,
+    "type": "worker",
+    "hotkey": "T"
+   },
+   "thornguard": {
+    "name": "Thornguard",
+    "desc": "Bark-armoured infantry with thorn spears.",
+    "hp": 70,
+    "armor": 1,
+    "dmg": 8,
+    "range": 1,
+    "cd": 1,
+    "speed": 3.2,
+    "sight": 6,
+    "cost": {
+     "p": 55
+    },
+    "supply": 1,
+    "time": 11,
+    "tier": 1,
+    "type": "infantry",
+    "hotkey": "G"
+   },
+   "briar_archer": {
+    "name": "Briar Archer",
+    "desc": "Ranged. Thorn-tipped arrows strike ground and air.",
+    "hp": 45,
+    "armor": 0,
+    "dmg": 9,
+    "range": 5,
+    "cd": 1.3,
+    "speed": 3.2,
+    "sight": 7,
+    "cost": {
+     "p": 65
+    },
+    "supply": 1,
+    "time": 13,
+    "tier": 1,
+    "type": "ranged",
+    "air": true,
+    "hotkey": "B"
+   },
+   "forest_nymph": {
+    "name": "Forest Nymph",
+    "desc": "Healer spirit. Mends allies with living sap (auto).",
+    "hp": 50,
+    "armor": 0,
+    "dmg": 5,
+    "range": 4,
+    "cd": 1.4,
+    "speed": 3.4,
+    "sight": 7,
+    "cost": {
+     "p": 80,
+     "s": 10
+    },
+    "supply": 1,
+    "time": 16,
+    "tier": 1,
+    "type": "caster",
+    "air": true,
+    "magic": true,
+    "heal": 12,
+    "hotkey": "N"
+   },
+   "verdant_sentinel": {
+    "name": "Verdant Sentinel",
+    "desc": "Soulborn guardian of living wood. Tanky, regenerates on the grove.",
+    "hp": 280,
+    "armor": 4,
+    "dmg": 20,
+    "range": 1,
+    "cd": 1.4,
+    "speed": 2.5,
+    "sight": 6,
+    "cost": {
+     "p": 170,
+     "s": 50
+    },
+    "supply": 3,
+    "time": 26,
+    "tier": 2,
+    "type": "infantry",
+    "hotkey": "V"
+   },
+   "everwood_spirit": {
+    "name": "Spirit of the Everwood",
+    "desc": "Flying nature spirit. Fast, ethereal, strikes ground and air.",
+    "hp": 90,
+    "armor": 0,
+    "dmg": 13,
+    "range": 3,
+    "cd": 1,
+    "speed": 4.6,
+    "sight": 8,
+    "cost": {
+     "p": 110,
+     "s": 50
+    },
+    "supply": 2,
+    "time": 20,
+    "tier": 2,
+    "type": "flying",
+    "flying": true,
+    "air": true,
+    "magic": true,
+    "hotkey": "S"
+   },
+   "dire_stag": {
+    "name": "Dire Stag",
+    "desc": "Light cavalry of the wild. Fast antlered charge.",
+    "hp": 150,
+    "armor": 2,
+    "dmg": 18,
+    "range": 1,
+    "cd": 1.1,
+    "speed": 4.5,
+    "sight": 7,
+    "cost": {
+     "p": 130,
+     "s": 30
+    },
+    "supply": 2,
+    "time": 22,
+    "tier": 2,
+    "type": "infantry",
+    "hotkey": "D"
+   },
+   "rootcrusher": {
+    "name": "Rootcrusher",
+    "desc": "Siege beast hurling seed-bombs. Splash, double vs structures.",
+    "hp": 140,
+    "armor": 2,
+    "dmg": 40,
+    "range": 8,
+    "minRange": 2,
+    "cd": 3.2,
+    "speed": 1.9,
+    "sight": 9,
+    "cost": {
+     "p": 160,
+     "s": 80
+    },
+    "supply": 3,
+    "time": 30,
+    "tier": 2,
+    "type": "siege",
+    "splash": 1.5,
+    "vsBuilding": 2,
+    "hotkey": "R"
+   },
+   "ancient_treant": {
+    "name": "Ancient Treant",
+    "desc": "Walking elder tree. Splash melee, spreads the grove as it walks.",
+    "hp": 650,
+    "armor": 6,
+    "dmg": 40,
+    "range": 1.5,
+    "cd": 1.6,
+    "speed": 2.2,
+    "sight": 8,
+    "cost": {
+     "p": 400,
+     "s": 250
+    },
+    "supply": 6,
+    "time": 55,
+    "tier": 3,
+    "type": "infantry",
+    "splash": 1.5,
+    "spreads": true,
+    "hotkey": "A"
+   },
+   "great_owl": {
+    "name": "Great Owl",
+    "desc": "Silent flying hunter with enormous sight. Strikes ground and air.",
+    "hp": 300,
+    "armor": 3,
+    "dmg": 28,
+    "range": 2,
+    "cd": 1.2,
+    "speed": 4.2,
+    "sight": 12,
+    "cost": {
+     "p": 280,
+     "s": 200
+    },
+    "supply": 4,
+    "time": 40,
+    "tier": 3,
+    "type": "flying",
+    "flying": true,
+    "air": true,
+    "hotkey": "O"
+   },
+   "heart_of_the_everwood": {
+    "name": "Heart of the Everwood",
+    "desc": "One may exist. The forest itself risen to war; heals allies and roots enemies around it.",
+    "hp": 1400,
+    "armor": 7,
+    "dmg": 60,
+    "range": 2,
+    "cd": 1.5,
+    "speed": 2.4,
+    "sight": 10,
+    "cost": {
+     "p": 500,
+     "s": 300,
+     "c": 1
+    },
+    "supply": 8,
+    "time": 60,
+    "tier": 3,
+    "type": "infantry",
+    "splash": 2,
+    "unique": true,
+    "spreads": true,
+    "aura": {
+     "id": "heart_aura",
+     "radius": 5
+    },
+    "hotkey": "H"
+   }
+  },
+  "heroes": {
+   "kael": {
+    "name": "Kael Thornwarden",
+    "title": "Warden of the Briar",
+    "role": "Military",
+    "desc": "Frontline warden. Briar charges, bark skin, thorn bursts and the wrath of the wild.",
+    "hp": 390,
+    "armor": 3,
+    "dmg": 25,
+    "range": 1,
+    "cd": 1.1,
+    "speed": 3.5,
+    "sight": 8,
+    "cost": {
+     "p": 250
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "spreads": true,
+    "abilities": [
+     "briar_charge",
+     "bark_skin",
+     "thorn_burst",
+     "wrath_of_the_wild"
+    ],
+    "hotkey": "K"
+   },
+   "elowen": {
+    "name": "Elowen",
+    "title": "the Grovekeeper",
+    "role": "Economic / Support",
+    "desc": "Keeper of the grove. Mends, seeds the land, blesses the harvest and calls the bloom of life.",
+    "hp": 250,
+    "armor": 1,
+    "dmg": 10,
+    "range": 4,
+    "cd": 1.3,
+    "speed": 3.2,
+    "sight": 8,
+    "cost": {
+     "p": 200
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "air": true,
+    "magic": true,
+    "abilities": [
+     "mend",
+     "seed_the_land",
+     "bountiful_harvest",
+     "bloom_of_life"
+    ],
+    "hotkey": "E"
+   },
+   "sylvara": {
+    "name": "Sylvara",
+    "title": "Spiritcaller",
+    "role": "Magical / Utility",
+    "desc": "Spirit mage. Spirit bolts, entangling vines, spirit-walks and awakens the Everwood.",
+    "hp": 250,
+    "armor": 1,
+    "dmg": 18,
+    "range": 5,
+    "cd": 1.4,
+    "speed": 3.1,
+    "sight": 9,
+    "cost": {
+     "p": 220,
+     "s": 30
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "air": true,
+    "magic": true,
+    "abilities": [
+     "spirit_bolt",
+     "entangle",
+     "spirit_walk",
+     "everwood_awakening"
+    ],
+    "hotkey": "Y"
+   }
+  },
+  "buildings": {
+   "everwood_spire": {
+    "name": "Everwood Spire",
+    "desc": "Your main base: a titanic living tree. Trains Tenders and heroes, receives sap, spreads the grove.",
+    "hp": 1600,
+    "armor": 5,
+    "w": 3,
+    "h": 3,
+    "cost": {},
+    "time": 0,
+    "tier": 1,
+    "isBase": true,
+    "dropoff": true,
+    "trains": [
+     "tender"
+    ],
+    "sight": 9
+   },
+   "bloomforge": {
+    "name": "Bloomforge",
+    "desc": "Flowering armoury. Trains Thornguards and Briar Archers; at Tier 2 Dire Stags. Forges Sharpened Thorns. +8 supply.",
+    "hp": 500,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 120
+    },
+    "time": 30,
+    "tier": 1,
+    "grows": true,
+    "trains": [
+     "thornguard",
+     "briar_archer",
+     "dire_stag"
+    ],
+    "research": [
+     "sharpened_thorns",
+     "ironbark"
+    ],
+    "supply": 8,
+    "grow": 2,
+    "hotkey": "B"
+   },
+   "groveheart_nexus": {
+    "name": "Groveheart Nexus",
+    "desc": "Built on a sap node. Refines Silver Sap (0.5/s), drop-off for Tenders. Spreads the grove. +4 supply.",
+    "hp": 400,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 90
+    },
+    "time": 22,
+    "tier": 1,
+    "grows": true,
+    "needsNode": "primary",
+    "dropoff": true,
+    "income": {
+     "p": 0.5
+    },
+    "supply": 4,
+    "grow": 3,
+    "hotkey": "G"
+   },
+   "verdant_sigil_hall": {
+    "name": "Verdant Sigil Hall",
+    "desc": "Soulborn training centre. Trains Forest Nymphs; at Tier 2 Verdant Sentinels. Generates Everwood Essence (0.8/s). Required for Tier 2.",
+    "hp": 480,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 110
+    },
+    "time": 30,
+    "tier": 1,
+    "grows": true,
+    "trains": [
+     "forest_nymph",
+     "verdant_sentinel"
+    ],
+    "income": {
+     "s": 0.8
+    },
+    "research": [
+     "wild_growth"
+    ],
+    "supply": 4,
+    "grow": 3,
+    "hotkey": "V"
+   },
+   "rootwarden_bastion": {
+    "name": "Rootwarden Bastion",
+    "desc": "Defensive tower of living roots. Thorn volleys against ground and air; +25% on the grove.",
+    "hp": 420,
+    "armor": 3,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 115
+    },
+    "time": 22,
+    "tier": 1,
+    "grows": true,
+    "tower": {
+     "dmg": 14,
+     "range": 6,
+     "cd": 1.3,
+     "air": true,
+     "layerBonus": 1.25
+    },
+    "grow": 3,
+    "sight": 8,
+    "hotkey": "R"
+   },
+   "thornwall_gatehouse": {
+    "name": "Thornwall Gatehouse",
+    "desc": "Living wall of thornroots. Entangles and lacerates enemies that press against it.",
+    "hp": 360,
+    "armor": 4,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 25
+    },
+    "time": 7,
+    "tier": 1,
+    "grows": true,
+    "wall": true,
+    "aura": {
+     "id": "thorns",
+     "radius": 1.5
+    },
+    "hotkey": "W"
+   },
+   "cycle_sanctuary": {
+    "name": "Cycle Sanctuary",
+    "desc": "Sacred sap spring. Heals nearby units (4/s) and regenerates Everwood Essence (0.8/s). Required for Tier 3.",
+    "hp": 450,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 160,
+     "s": 40
+    },
+    "time": 35,
+    "tier": 2,
+    "grows": true,
+    "aura": {
+     "id": "healing",
+     "radius": 5,
+     "rate": 4
+    },
+    "income": {
+     "s": 0.8
+    },
+    "research": [
+     "symbiosis",
+     "deep_roots"
+    ],
+    "grow": 4,
+    "hotkey": "C"
+   },
+   "sylvan_waystone": {
+    "name": "Sylvan Waystone",
+    "desc": "Teleportation monolith. Waystep: send allies within 3 tiles to another of your Waystones. Grants vision.",
+    "hp": 380,
+    "armor": 3,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 150,
+     "s": 50
+    },
+    "time": 30,
+    "tier": 2,
+    "grows": true,
+    "abilities": [
+     "waystep"
+    ],
+    "sight": 10,
+    "grow": 2,
+    "hotkey": "Y"
+   },
+   "wild_den": {
+    "name": "Wild Den",
+    "desc": "(invented) Beast lair. Trains Rootcrushers; at Tier 3 Great Owls. +6 supply.",
+    "hp": 550,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 200,
+     "s": 70
+    },
+    "time": 40,
+    "tier": 2,
+    "grows": true,
+    "trains": [
+     "rootcrusher",
+     "great_owl"
+    ],
+    "supply": 6,
+    "grow": 3,
+    "hotkey": "D"
+   },
+   "spirit_tree": {
+    "name": "Spirit Tree",
+    "desc": "(invented) Trains Spirits of the Everwood; at Tier 3 Ancient Treants. +6 supply.",
+    "hp": 600,
+    "armor": 3,
+    "w": 3,
+    "h": 3,
+    "cost": {
+     "p": 230,
+     "s": 80
+    },
+    "time": 45,
+    "tier": 2,
+    "grows": true,
+    "trains": [
+     "everwood_spirit",
+     "ancient_treant"
+    ],
+    "research": [
+     "everwood_blessing"
+    ],
+    "supply": 6,
+    "grow": 4,
+    "hotkey": "S"
+   },
+   "sapwood_granary": {
+    "name": "Sapwood Granary",
+    "desc": "Resource storage. +12 supply and a small sap trickle (0.3/s).",
+    "hp": 380,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 100
+    },
+    "time": 24,
+    "tier": 1,
+    "grows": true,
+    "supply": 12,
+    "income": {
+     "p": 0.3
+    },
+    "grow": 2,
+    "hotkey": "N"
+   },
+   "everglen_outpost": {
+    "name": "Everglen Outpost",
+    "desc": "Forward base. Drop-off for sap, wide vision, spreads the grove far from home.",
+    "hp": 450,
+    "armor": 3,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 140,
+     "s": 30
+    },
+    "time": 30,
+    "tier": 2,
+    "grows": true,
+    "dropoff": true,
+    "sight": 12,
+    "grow": 5,
+    "supply": 4,
+    "hotkey": "O"
+   },
+   "world_seed_altar": {
+    "name": "World Seed Altar",
+    "desc": "(invented) Cradles a World Seed every 150s (holds 1). Wakes the Heart of the Everwood.",
+    "hp": 600,
+    "armor": 3,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 300,
+     "s": 250
+    },
+    "time": 60,
+    "tier": 3,
+    "grows": true,
+    "catalystGen": {
+     "every": 150
+    },
+    "trains": [
+     "heart_of_the_everwood"
+    ],
+    "grow": 5,
+    "hotkey": "H"
+   }
+  },
+  "research": {
+   "sharpened_thorns": {
+    "name": "Sharpened Thorns",
+    "desc": "+2 damage for all units.",
+    "cost": {
+     "p": 120
+    },
+    "time": 30,
+    "tier": 1,
+    "hotkey": "S",
+    "effect": {
+     "dmg": 2
+    }
+   },
+   "ironbark": {
+    "name": "Ironbark",
+    "desc": "+1 armor for all units.",
+    "cost": {
+     "p": 150,
+     "s": 30
+    },
+    "time": 35,
+    "tier": 1,
+    "hotkey": "I",
+    "effect": {
+     "armor": 1
+    }
+   },
+   "wild_growth": {
+    "name": "Wild Growth",
+    "desc": "The grove spreads 50% faster.",
+    "cost": {
+     "p": 120,
+     "s": 40
+    },
+    "time": 30,
+    "tier": 1,
+    "hotkey": "W",
+    "effect": {
+     "layerGrow": 1.5
+    }
+   },
+   "deep_roots": {
+    "name": "Deep Roots",
+    "desc": "All structures gain +3 armor.",
+    "cost": {
+     "p": 140,
+     "s": 50
+    },
+    "time": 35,
+    "tier": 2,
+    "hotkey": "D",
+    "effect": {
+     "structArmor": 3
+    }
+   },
+   "symbiosis": {
+    "name": "Symbiosis",
+    "desc": "Units on the grove gain 15% lifesteal and +1 hp/s.",
+    "cost": {
+     "p": 200,
+     "s": 120
+    },
+    "time": 45,
+    "tier": 2,
+    "hotkey": "Y",
+    "effect": {
+     "lifesteal": 0.15,
+     "regen": 1,
+     "onAffinity": true
+    }
+   },
+   "everwood_blessing": {
+    "name": "Everwood's Blessing",
+    "desc": "Healing from nymphs and sanctuaries is 40% stronger; all units +1 hp/s.",
+    "cost": {
+     "p": 300,
+     "s": 200
+    },
+    "time": 60,
+    "tier": 3,
+    "hotkey": "E",
+    "effect": {
+     "healMul": 1.4,
+     "regen": 1
+    }
+   }
+  }
+ },
+ "abyss": {
+  "id": "abyss",
+  "name": "Abyss",
+  "tagline": "Domain of Death and Corruption",
+  "blurb": "Slow-building attrition powerhouse. Every death near your forces yields Soul Essence. Spread blight to claim the ground, raise the dead, and sacrifice the weak to empower the strong. Survive the early game and become inevitable.",
+  "color": "#8b3cff",
+  "affinity": "blight",
+  "gathers": true,
+  "nodeBuilding": {
+   "primary": "soul_well",
+   "secondary": null
+  },
+  "resources": {
+   "primary": {
+    "name": "Soul Essence",
+    "short": "Souls",
+    "icon": "☠"
+   },
+   "secondary": {
+    "name": "Voidstone",
+    "short": "Void",
+    "icon": "◆"
+   },
+   "catalyst": {
+    "name": "Oblivion Shard",
+    "short": "Shard",
+    "icon": "✦"
+   }
+  },
+  "worker": "acolyte",
+  "base": "necropolis",
+  "startRes": {
+   "p": 400,
+   "s": 0,
+   "c": 0
+  },
+  "tips": [
+   "Souls flow from every death near your units — trade fodder freely.",
+   "Acolytes carry souls from fonts to the Necropolis. A Soul Well on a font channels souls on its own.",
+   "Blight spreads from your Necropolis; your undead heal on it and enemies weaken.",
+   "Necromancers raise skeletons from corpses. Malazar's Curse turns enemy dead into your army."
+  ],
+  "tiers": [
+   {
+    "name": "Necropolis of Shades",
+    "supply": 30,
+    "hp": 1500,
+    "terrain": 5
+   },
+   {
+    "name": "Profane Citadel",
+    "supply": 50,
+    "hp": 2200,
+    "terrain": 8,
+    "cost": {
+     "p": 650
+    },
+    "time": 60,
+    "requires": "occult_den",
+    "desc": "Unlocks Tier 2 structures, a second hero and stronger blight. +25% soul harvest from kills."
+   },
+   {
+    "name": "Oblivion Spire",
+    "supply": 80,
+    "hp": 3000,
+    "terrain": 12,
+    "cost": {
+     "p": 1200,
+     "s": 400
+    },
+    "time": 90,
+    "requires": "reliquary",
+    "desc": "Unlocks Tier 3 units and the third hero. Shadow of the Void: enemies on blight lose 15% damage. Produces Oblivion Shards."
+   }
+  ],
+  "units": {
+   "acolyte": {
+    "name": "Acolyte",
+    "desc": "Worker. Gathers Soul Essence from soul fonts and builds structures.",
+    "hp": 40,
+    "armor": 0,
+    "dmg": 3,
+    "range": 1,
+    "cd": 1.2,
+    "speed": 3.2,
+    "sight": 6,
+    "cost": {
+     "p": 50
+    },
+    "supply": 1,
+    "time": 12,
+    "tier": 1,
+    "type": "worker",
+    "hotkey": "A"
+   },
+   "skeleton_warrior": {
+    "name": "Skeleton Warrior",
+    "desc": "Cheap melee fodder. Dies easily, but every death feeds the Abyss.",
+    "hp": 55,
+    "armor": 0,
+    "dmg": 7,
+    "range": 1,
+    "cd": 1,
+    "speed": 3,
+    "sight": 6,
+    "cost": {
+     "p": 40
+    },
+    "supply": 1,
+    "time": 9,
+    "tier": 1,
+    "type": "infantry",
+    "undead": true,
+    "hotkey": "S"
+   },
+   "gravebow_archer": {
+    "name": "Gravebow Archer",
+    "desc": "Ranged skeleton. Fires bone arrows at ground and air.",
+    "hp": 40,
+    "armor": 0,
+    "dmg": 8,
+    "range": 5,
+    "cd": 1.3,
+    "speed": 2.8,
+    "sight": 7,
+    "cost": {
+     "p": 55
+    },
+    "supply": 1,
+    "time": 12,
+    "tier": 1,
+    "type": "ranged",
+    "air": true,
+    "undead": true,
+    "hotkey": "G"
+   },
+   "shadow_adept": {
+    "name": "Shadow Adept",
+    "desc": "Cultist caster with a life-drain bolt that heals the adept.",
+    "hp": 50,
+    "armor": 0,
+    "dmg": 6,
+    "range": 3,
+    "cd": 1.1,
+    "speed": 3,
+    "sight": 7,
+    "cost": {
+     "p": 70
+    },
+    "supply": 1,
+    "time": 14,
+    "tier": 1,
+    "type": "caster",
+    "air": true,
+    "magic": true,
+    "lifesteal": 0.6,
+    "hotkey": "D"
+   },
+   "necromancer": {
+    "name": "Necromancer",
+    "desc": "Raises Skeleton Warriors from nearby corpses (auto). Weak in direct combat.",
+    "hp": 60,
+    "armor": 0,
+    "dmg": 5,
+    "range": 4,
+    "cd": 1.5,
+    "speed": 2.8,
+    "sight": 8,
+    "cost": {
+     "p": 120,
+     "s": 40
+    },
+    "supply": 2,
+    "time": 22,
+    "tier": 2,
+    "type": "caster",
+    "air": true,
+    "magic": true,
+    "raiseDead": true,
+    "hotkey": "N"
+   },
+   "banshee": {
+    "name": "Banshee",
+    "desc": "Flying ghost. Fast harasser whose wail strikes ground and air.",
+    "hp": 70,
+    "armor": 0,
+    "dmg": 9,
+    "range": 3,
+    "cd": 1,
+    "speed": 4.5,
+    "sight": 8,
+    "cost": {
+     "p": 100,
+     "s": 50
+    },
+    "supply": 2,
+    "time": 20,
+    "tier": 2,
+    "type": "flying",
+    "flying": true,
+    "air": true,
+    "magic": true,
+    "undead": true,
+    "hotkey": "B"
+   },
+   "flesh_abomination": {
+    "name": "Flesh Abomination",
+    "desc": "Stitched monstrosity. Tanky frontline melee brute.",
+    "hp": 260,
+    "armor": 3,
+    "dmg": 18,
+    "range": 1,
+    "cd": 1.4,
+    "speed": 2.2,
+    "sight": 6,
+    "cost": {
+     "p": 180,
+     "s": 60
+    },
+    "supply": 3,
+    "time": 28,
+    "tier": 2,
+    "type": "infantry",
+    "undead": true,
+    "hotkey": "F"
+   },
+   "bone_catapult": {
+    "name": "Bone Catapult",
+    "desc": "Siege artillery lobbing putrid skulls. Splash damage, double vs structures.",
+    "hp": 120,
+    "armor": 1,
+    "dmg": 40,
+    "range": 8,
+    "minRange": 2,
+    "cd": 3,
+    "speed": 1.8,
+    "sight": 9,
+    "cost": {
+     "p": 150,
+     "s": 80
+    },
+    "supply": 3,
+    "time": 30,
+    "tier": 2,
+    "type": "siege",
+    "splash": 1.5,
+    "vsBuilding": 2,
+    "hotkey": "C"
+   },
+   "void_knight": {
+    "name": "Void Knight",
+    "desc": "Elite shock cavalry wreathed in shadow. Fast and armored.",
+    "hp": 220,
+    "armor": 4,
+    "dmg": 24,
+    "range": 1,
+    "cd": 1,
+    "speed": 3.8,
+    "sight": 7,
+    "cost": {
+     "p": 220,
+     "s": 120
+    },
+    "supply": 3,
+    "time": 30,
+    "tier": 3,
+    "type": "infantry",
+    "undead": true,
+    "hotkey": "V"
+   },
+   "nether_dragon": {
+    "name": "Nether Dragon",
+    "desc": "Flying drake exhaling corrupting breath. Splash damage against ground and air.",
+    "hp": 400,
+    "armor": 3,
+    "dmg": 30,
+    "range": 4,
+    "cd": 1.6,
+    "speed": 3.5,
+    "sight": 9,
+    "cost": {
+     "p": 300,
+     "s": 250
+    },
+    "supply": 5,
+    "time": 45,
+    "tier": 3,
+    "type": "flying",
+    "flying": true,
+    "air": true,
+    "splash": 1.2,
+    "magic": true,
+    "undead": true,
+    "hotkey": "D"
+   },
+   "shade": {
+    "name": "Shade",
+    "desc": "Minor void shade spawned freely by the Void Gate. Scout and harasser.",
+    "hp": 30,
+    "armor": 0,
+    "dmg": 5,
+    "range": 1,
+    "cd": 1,
+    "speed": 4.2,
+    "sight": 8,
+    "cost": {},
+    "supply": 0,
+    "time": 0,
+    "tier": 3,
+    "type": "infantry",
+    "undead": true,
+    "magic": true
+   },
+   "deathlord": {
+    "name": "The Deathlord",
+    "desc": "Avatar of Virexus. One may exist. Colossal necrotic titan with a death aura.",
+    "hp": 1200,
+    "armor": 6,
+    "dmg": 60,
+    "range": 2,
+    "cd": 1.5,
+    "speed": 2.6,
+    "sight": 9,
+    "cost": {
+     "p": 500,
+     "s": 300,
+     "c": 1
+    },
+    "supply": 8,
+    "time": 60,
+    "tier": 3,
+    "type": "infantry",
+    "splash": 2,
+    "undead": true,
+    "unique": true,
+    "aura": {
+     "id": "death_aura",
+     "radius": 5
+    },
+    "hotkey": "L"
+   }
+  },
+  "heroes": {
+   "tyvaris": {
+    "name": "Warlord Tyvaris",
+    "title": "the Grave Tyrant",
+    "role": "Military",
+    "desc": "Hulking melee champion. Spreads blight as he walks; undead near him rise once more after death.",
+    "hp": 380,
+    "armor": 3,
+    "dmg": 26,
+    "range": 1,
+    "cd": 1.1,
+    "speed": 3.3,
+    "sight": 8,
+    "cost": {
+     "p": 250
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "abilities": [
+     "soulcleaver",
+     "dread_banner",
+     "sacrificial_surge",
+     "pale_king"
+    ],
+    "hotkey": "T",
+    "spreads": true
+   },
+   "neratha": {
+    "name": "Neratha Soulweaver",
+    "title": "of the Whisperless Sect",
+    "role": "Economic / Support",
+    "desc": "Frail necromancer crone. Harvests souls, spreads blight and hastens production with blood pacts.",
+    "hp": 240,
+    "armor": 1,
+    "dmg": 10,
+    "range": 4,
+    "cd": 1.3,
+    "speed": 3,
+    "sight": 8,
+    "cost": {
+     "p": 200
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "air": true,
+    "magic": true,
+    "abilities": [
+     "harvest_soul",
+     "corruption_ward",
+     "dark_pact",
+     "undying_devotion"
+    ],
+    "hotkey": "N"
+   },
+   "malazar": {
+    "name": "Malazar the Voidcaller",
+    "title": "Lich of the Deep Void",
+    "role": "Magical / Utility",
+    "desc": "Ranged lich sorcerer. Void bolts, terror veils, portals and the Curse of Undeath.",
+    "hp": 260,
+    "armor": 1,
+    "dmg": 18,
+    "range": 5,
+    "cd": 1.4,
+    "speed": 3,
+    "sight": 9,
+    "cost": {
+     "p": 220,
+     "s": 30
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "air": true,
+    "magic": true,
+    "abilities": [
+     "void_bolt",
+     "nightmare_veil",
+     "nether_portal",
+     "curse_of_undeath"
+    ],
+    "hotkey": "M"
+   }
+  },
+  "buildings": {
+   "necropolis": {
+    "name": "Necropolis of Shades",
+    "desc": "Your main base. Trains Acolytes and heroes, drops off souls, spreads blight.",
+    "hp": 1500,
+    "armor": 5,
+    "w": 3,
+    "h": 3,
+    "cost": {},
+    "time": 0,
+    "tier": 1,
+    "isBase": true,
+    "dropoff": true,
+    "trains": [
+     "acolyte"
+    ],
+    "corrupt": 5,
+    "sight": 9,
+    "tower": {
+     "dmg": 0
+    }
+   },
+   "grim_crypt": {
+    "name": "Grim Crypt",
+    "desc": "Animates Skeleton Warriors and Gravebow Archers. +8 supply.",
+    "hp": 500,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 120
+    },
+    "time": 30,
+    "tier": 1,
+    "trains": [
+     "skeleton_warrior",
+     "gravebow_archer"
+    ],
+    "supply": 8,
+    "hotkey": "C"
+   },
+   "occult_den": {
+    "name": "Occult Den",
+    "desc": "Cultist temple. Trains Acolytes and Shadow Adepts, researches dark blessings. +8 supply. Required for Tier 2.",
+    "hp": 450,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 100
+    },
+    "time": 28,
+    "tier": 1,
+    "trains": [
+     "acolyte",
+     "shadow_adept"
+    ],
+    "research": [
+     "dark_blessing",
+     "necrotic_armor"
+    ],
+    "supply": 8,
+    "hotkey": "O"
+   },
+   "soul_well": {
+    "name": "Soul Well",
+    "desc": "Built on a soul font. Channels 0.8 souls/s from the font automatically and receives what Acolytes mine there. Can sacrifice a friendly unit for a burst of Soul Essence. Spreads blight.",
+    "hp": 350,
+    "armor": 1,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 80
+    },
+    "time": 20,
+    "tier": 1,
+    "needsNode": "primary",
+    "income": {
+     "p": 0.8
+    },
+    "dropoff": true,
+    "corrupt": 3,
+    "abilities": [
+     "sacrifice"
+    ],
+    "supply": 4,
+    "hotkey": "W"
+   },
+   "soul_obelisk": {
+    "name": "Soul Obelisk",
+    "desc": "Defensive tower. Necrotic bolts leech life to nearby undead. Longer range on blight.",
+    "hp": 400,
+    "armor": 3,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 120
+    },
+    "time": 22,
+    "tier": 1,
+    "tower": {
+     "dmg": 14,
+     "range": 6,
+     "cd": 1.2,
+     "air": true,
+     "leech": 0.5,
+     "blightRange": 1
+    },
+    "sight": 8,
+    "hotkey": "T"
+   },
+   "corruption_spire": {
+    "name": "Corruption Spire",
+    "desc": "No attack. Rapidly spreads blight; enemies on blight nearby are slowed and decay.",
+    "hp": 300,
+    "armor": 2,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 100
+    },
+    "time": 25,
+    "tier": 1,
+    "corrupt": 5,
+    "aura": {
+     "id": "blight_miasma",
+     "radius": 5
+    },
+    "sight": 6,
+    "hotkey": "P"
+   },
+   "bone_wall": {
+    "name": "Bone Wall",
+    "desc": "Wall of fused bone. Regenerates when anything dies beside it.",
+    "hp": 300,
+    "armor": 4,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 20
+    },
+    "time": 6,
+    "tier": 1,
+    "wall": true,
+    "hotkey": "B"
+   },
+   "plague_mine": {
+    "name": "Plague Mine",
+    "desc": "Invisible trap. Erupts in disease when enemies approach, weakening and sapping them.",
+    "hp": 10,
+    "armor": 0,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 40
+    },
+    "time": 8,
+    "tier": 1,
+    "invisible": true,
+    "mine": true,
+    "hotkey": "M"
+   },
+   "necromancer_spire": {
+    "name": "Necromancer's Spire",
+    "desc": "Trains Necromancers and Banshees. Researches Grave March.",
+    "hp": 550,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 200,
+     "s": 50
+    },
+    "time": 40,
+    "tier": 2,
+    "trains": [
+     "necromancer",
+     "banshee"
+    ],
+    "research": [
+     "grave_march"
+    ],
+    "supply": 6,
+    "hotkey": "N"
+   },
+   "flesh_forge": {
+    "name": "Flesh Forge",
+    "desc": "Abomination pit. Trains Flesh Abominations and Bone Catapults. Researches Blight Plague.",
+    "hp": 700,
+    "armor": 3,
+    "w": 3,
+    "h": 3,
+    "cost": {
+     "p": 220,
+     "s": 80
+    },
+    "time": 45,
+    "tier": 2,
+    "trains": [
+     "flesh_abomination",
+     "bone_catapult"
+    ],
+    "research": [
+     "blight_plague"
+    ],
+    "supply": 6,
+    "hotkey": "F"
+   },
+   "reliquary": {
+    "name": "Reliquary of Darkness",
+    "desc": "Crafts Dark Relics: vampiric and armor augmentations. Required for Tier 3.",
+    "hp": 500,
+    "armor": 3,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 180,
+     "s": 100
+    },
+    "time": 40,
+    "tier": 2,
+    "research": [
+     "vampiric_relics"
+    ],
+    "hotkey": "R"
+   },
+   "corruption_crucible": {
+    "name": "Corruption Crucible",
+    "desc": "Condenses Soul Essence into Voidstone (3 souls → 2 void per second while active). Spreads blight.",
+    "hp": 400,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 150
+    },
+    "time": 30,
+    "tier": 2,
+    "converter": {
+     "from": "p",
+     "to": "s",
+     "rate": 3,
+     "ratio": 0.667
+    },
+    "corrupt": 4,
+    "abilities": [
+     "toggle_convert"
+    ],
+    "hotkey": "U"
+   },
+   "void_gate": {
+    "name": "Void Gate",
+    "desc": "Portal to the Void. Trains Void Knights and Nether Dragons. Periodically spawns free Shades.",
+    "hp": 800,
+    "armor": 4,
+    "w": 3,
+    "h": 3,
+    "cost": {
+     "p": 350,
+     "s": 200
+    },
+    "time": 60,
+    "tier": 3,
+    "trains": [
+     "void_knight",
+     "nether_dragon"
+    ],
+    "spawner": {
+     "unit": "shade",
+     "every": 40
+    },
+    "supply": 8,
+    "hotkey": "V"
+   },
+   "cathedral_of_decay": {
+    "name": "Cathedral of Decay",
+    "desc": "Ultimate tech. Summons the Deathlord (needs an Oblivion Shard). Researches Death Fog.",
+    "hp": 900,
+    "armor": 4,
+    "w": 3,
+    "h": 3,
+    "cost": {
+     "p": 400,
+     "s": 300
+    },
+    "time": 70,
+    "tier": 3,
+    "trains": [
+     "deathlord"
+    ],
+    "research": [
+     "death_fog"
+    ],
+    "hotkey": "H"
+   }
+  },
+  "research": {
+   "dark_blessing": {
+    "name": "Dark Blessing",
+    "desc": "+2 damage for all units.",
+    "cost": {
+     "p": 120
+    },
+    "time": 30,
+    "tier": 1,
+    "hotkey": "D",
+    "effect": {
+     "dmg": 2
+    }
+   },
+   "necrotic_armor": {
+    "name": "Necrotic Armor",
+    "desc": "+1 armor for all units.",
+    "cost": {
+     "p": 150,
+     "s": 30
+    },
+    "time": 35,
+    "tier": 1,
+    "hotkey": "A",
+    "effect": {
+     "armor": 1
+    }
+   },
+   "grave_march": {
+    "name": "Grave March",
+    "desc": "Units move 25% faster on blight.",
+    "cost": {
+     "p": 120,
+     "s": 40
+    },
+    "time": 30,
+    "tier": 2,
+    "hotkey": "G",
+    "effect": {
+     "affinitySpeed": 1.25
+    }
+   },
+   "blight_plague": {
+    "name": "Blight Plague",
+    "desc": "Melee attacks inflict disease (damage over time).",
+    "cost": {
+     "p": 180,
+     "s": 80
+    },
+    "time": 40,
+    "tier": 2,
+    "hotkey": "B",
+    "effect": {
+     "meleeDot": 1
+    }
+   },
+   "vampiric_relics": {
+    "name": "Vampiric Relics",
+    "desc": "Tier 2+ units gain 20% lifesteal.",
+    "cost": {
+     "p": 200,
+     "s": 120
+    },
+    "time": 45,
+    "tier": 2,
+    "hotkey": "V",
+    "effect": {
+     "lifesteal": 0.2,
+     "minTier": 2
+    }
+   },
+   "death_fog": {
+    "name": "Death Fog",
+    "desc": "All undead gain 10% lifesteal and +1 hp/s regeneration.",
+    "cost": {
+     "p": 300,
+     "s": 200
+    },
+    "time": 60,
+    "tier": 3,
+    "hotkey": "F",
+    "effect": {
+     "lifesteal": 0.1,
+     "regen": 1,
+     "undeadOnly": true
+    }
+   }
+  }
+ },
+ "tempest": {
+  "id": "tempest",
+  "name": "Tempest",
+  "tagline": "Domain of Storms and Skies",
+  "blurb": "Hit-and-run sky tacticians with a tribute economy. Aetherforges pay Stormsteel automatically, so few workers are needed. Fliers, chain lightning and weather control let you choose every battle — but your units are fragile in a slugfest.",
+  "color": "#35c8ff",
+  "affinity": null,
+  "gathers": false,
+  "nodeBuilding": {
+   "primary": "aetherforge",
+   "secondary": "stormcall_array"
+  },
+  "resources": {
+   "primary": {
+    "name": "Stormsteel",
+    "short": "Steel",
+    "icon": "⚡"
+   },
+   "secondary": {
+    "name": "Aether Crystals",
+    "short": "Aether",
+    "icon": "❖"
+   },
+   "catalyst": {
+    "name": "Tempest Pearl",
+    "short": "Pearl",
+    "icon": "●"
+   }
+  },
+  "worker": "windcaster",
+  "base": "stormspire",
+  "startRes": {
+   "p": 450,
+   "s": 0,
+   "c": 0
+  },
+  "tips": [
+   "Windcasters only build. Aetherforges on stormglass nodes pay Stormsteel tribute automatically.",
+   "Stormcall Arrays on aether vents yield crystals — double during a storm.",
+   "Your base can Relocate: lift off and float to a better position.",
+   "Alyssia's Cloudburst re-energizes a depleted node. Save a Tempest Pearl for the Eye of Auranth."
+  ],
+  "tiers": [
+   {
+    "name": "Stormspire Outpost",
+    "supply": 30,
+    "hp": 1400,
+    "income": 2.5
+   },
+   {
+    "name": "Skybreaker Citadel",
+    "supply": 50,
+    "hp": 2000,
+    "income": 3,
+    "cost": {
+     "p": 550,
+     "s": 80
+    },
+    "time": 60,
+    "requires": "stormcall_tower",
+    "desc": "Unlocks Tier 2 structures and a second hero. Tempest Barrier aura: allies near base take 25% less ranged damage. More tribute."
+   },
+   {
+    "name": "Maelstrom Nexus",
+    "supply": 80,
+    "hp": 2800,
+    "income": 3.5,
+    "cost": {
+     "p": 1100,
+     "s": 400
+    },
+    "time": 90,
+    "requires": "stratosanct",
+    "desc": "Unlocks Tier 3 units and the third hero. Eye of the Storm: during storms your units move faster and take less damage. Base hurls thunderbolts."
+   }
+  ],
+  "units": {
+   "windcaster": {
+    "name": "Windcaster",
+    "desc": "Worker. Builds structures. Income comes from tribute, not gathering.",
+    "hp": 45,
+    "armor": 0,
+    "dmg": 3,
+    "range": 1,
+    "cd": 1.2,
+    "speed": 3.6,
+    "sight": 7,
+    "cost": {
+     "p": 50
+    },
+    "supply": 1,
+    "time": 12,
+    "tier": 1,
+    "type": "worker",
+    "hotkey": "W"
+   },
+   "stormblade": {
+    "name": "Stormblade",
+    "desc": "Lightning-charged swordsman. Each hit adds shock damage that ignores armor.",
+    "hp": 70,
+    "armor": 1,
+    "dmg": 9,
+    "range": 1,
+    "cd": 1,
+    "speed": 3.4,
+    "sight": 6,
+    "cost": {
+     "p": 60
+    },
+    "supply": 1,
+    "time": 12,
+    "tier": 1,
+    "type": "infantry",
+    "shock": 3,
+    "hotkey": "S"
+   },
+   "wind_archer": {
+    "name": "Wind Archer",
+    "desc": "Long-range crossbowman guided by wind spirits. Hits air.",
+    "hp": 45,
+    "armor": 0,
+    "dmg": 9,
+    "range": 6,
+    "cd": 1.4,
+    "speed": 3.2,
+    "sight": 8,
+    "cost": {
+     "p": 70
+    },
+    "supply": 1,
+    "time": 14,
+    "tier": 1,
+    "type": "ranged",
+    "air": true,
+    "hotkey": "A"
+   },
+   "skywing": {
+    "name": "Skywing",
+    "desc": "Flying scout with excellent vision. Minimal combat value.",
+    "hp": 35,
+    "armor": 0,
+    "dmg": 4,
+    "range": 3,
+    "cd": 1.2,
+    "speed": 5.5,
+    "sight": 11,
+    "cost": {
+     "p": 50
+    },
+    "supply": 1,
+    "time": 12,
+    "tier": 1,
+    "type": "flying",
+    "flying": true,
+    "air": true,
+    "hotkey": "K"
+   },
+   "thunderhawk": {
+    "name": "Thunderhawk",
+    "desc": "Flying fighter with a stormrifle. Strikes ground and air.",
+    "hp": 110,
+    "armor": 1,
+    "dmg": 14,
+    "range": 4,
+    "cd": 1,
+    "speed": 5,
+    "sight": 9,
+    "cost": {
+     "p": 120,
+     "s": 40
+    },
+    "supply": 2,
+    "time": 20,
+    "tier": 2,
+    "type": "flying",
+    "flying": true,
+    "air": true,
+    "hotkey": "T"
+   },
+   "tempest_rider": {
+    "name": "Tempest Rider",
+    "desc": "Elite drake cavalry. Devastating dives against ground targets.",
+    "hp": 160,
+    "armor": 2,
+    "dmg": 22,
+    "range": 1.5,
+    "cd": 1.2,
+    "speed": 4.8,
+    "sight": 8,
+    "cost": {
+     "p": 150,
+     "s": 60
+    },
+    "supply": 3,
+    "time": 26,
+    "tier": 2,
+    "type": "flying",
+    "flying": true,
+    "air": false,
+    "hotkey": "R"
+   },
+   "storm_golem": {
+    "name": "Storm Golem",
+    "desc": "Stormsteel construct. Heavy melee bruiser for holding the line.",
+    "hp": 300,
+    "armor": 4,
+    "dmg": 20,
+    "range": 1,
+    "cd": 1.5,
+    "speed": 2.4,
+    "sight": 6,
+    "cost": {
+     "p": 200,
+     "s": 60
+    },
+    "supply": 3,
+    "time": 28,
+    "tier": 2,
+    "type": "infantry",
+    "mechanical": true,
+    "hotkey": "G"
+   },
+   "lightning_cannon": {
+    "name": "Lightning Cannon",
+    "desc": "Siege artillery firing arcing bolts. Splash, double vs structures.",
+    "hp": 130,
+    "armor": 1,
+    "dmg": 45,
+    "range": 9,
+    "minRange": 2,
+    "cd": 3.5,
+    "speed": 2,
+    "sight": 10,
+    "cost": {
+     "p": 180,
+     "s": 100
+    },
+    "supply": 3,
+    "time": 32,
+    "tier": 2,
+    "type": "siege",
+    "splash": 1.5,
+    "vsBuilding": 2,
+    "magic": true,
+    "mechanical": true,
+    "hotkey": "C"
+   },
+   "tempest_weaver": {
+    "name": "Tempest Weaver",
+    "desc": "Master sorcerer. Attacks chain lightning to 3 extra targets.",
+    "hp": 90,
+    "armor": 0,
+    "dmg": 12,
+    "range": 5,
+    "cd": 1.3,
+    "speed": 3,
+    "sight": 8,
+    "cost": {
+     "p": 200,
+     "s": 150
+    },
+    "supply": 3,
+    "time": 30,
+    "tier": 3,
+    "type": "caster",
+    "air": true,
+    "magic": true,
+    "chain": 3,
+    "hotkey": "V"
+   },
+   "sky_leviathan": {
+    "name": "Sky Leviathan",
+    "desc": "Capital airship: a flying artillery platform bristling with lightning cannons.",
+    "hp": 900,
+    "armor": 5,
+    "dmg": 50,
+    "range": 7,
+    "cd": 2.5,
+    "speed": 2.8,
+    "sight": 10,
+    "cost": {
+     "p": 500,
+     "s": 300
+    },
+    "supply": 6,
+    "time": 60,
+    "tier": 3,
+    "type": "flying",
+    "flying": true,
+    "air": true,
+    "splash": 2,
+    "magic": true,
+    "mechanical": true,
+    "hotkey": "L"
+   },
+   "armada_trooper": {
+    "name": "Armada Shocktrooper",
+    "desc": "Reinforcement summoned by Call of the Armada.",
+    "hp": 90,
+    "armor": 2,
+    "dmg": 12,
+    "range": 1,
+    "cd": 1,
+    "speed": 3.6,
+    "sight": 6,
+    "cost": {},
+    "supply": 0,
+    "time": 0,
+    "tier": 1,
+    "type": "infantry",
+    "shock": 3
+   }
+  },
+  "heroes": {
+   "rykan": {
+    "name": "Stormlord Rykan",
+    "title": "Sky-Knight of the Council",
+    "role": "Military",
+    "desc": "Gryphon-riding frontline hero. Thunderstrikes, rallies the winds, and becomes the eye of a storm.",
+    "hp": 400,
+    "armor": 3,
+    "dmg": 28,
+    "range": 1.5,
+    "cd": 1,
+    "speed": 4.2,
+    "sight": 8,
+    "cost": {
+     "p": 250
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "flying": true,
+    "air": true,
+    "abilities": [
+     "thunderstrike",
+     "wind_rally",
+     "skyfury",
+     "eye_of_the_storm"
+    ],
+    "hotkey": "R"
+   },
+   "lyrian": {
+    "name": "Skybreaker Lyrian",
+    "title": "Master of Logistics",
+    "role": "Economic / Support",
+    "desc": "Council engineer. Boosts tribute, shields allies from projectiles, and calls the Armada.",
+    "hp": 260,
+    "armor": 2,
+    "dmg": 10,
+    "range": 4,
+    "cd": 1.3,
+    "speed": 3.4,
+    "sight": 8,
+    "cost": {
+     "p": 200
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "air": true,
+    "abilities": [
+     "trade_winds",
+     "zephyr_ward",
+     "aerial_logistik",
+     "call_of_the_armada"
+    ],
+    "hotkey": "L"
+   },
+   "alyssia": {
+    "name": "Stormcaller Alyssia",
+    "title": "Heir of the First Stormcaller",
+    "role": "Magical / Utility",
+    "desc": "Fragile storm mage. Chain lightning, cloudbursts, map-wide clarity and the Hurricane Maelstrom.",
+    "hp": 240,
+    "armor": 1,
+    "dmg": 16,
+    "range": 5,
+    "cd": 1.4,
+    "speed": 3.2,
+    "sight": 9,
+    "cost": {
+     "p": 220,
+     "s": 30
+    },
+    "supply": 0,
+    "time": 30,
+    "type": "hero",
+    "air": true,
+    "magic": true,
+    "abilities": [
+     "chain_lightning",
+     "cloudburst",
+     "eye_of_clarity",
+     "hurricane_maelstrom"
+    ],
+    "hotkey": "A"
+   }
+  },
+  "buildings": {
+   "stormspire": {
+    "name": "Stormspire Outpost",
+    "desc": "Your floating base. Trains Windcasters and heroes, pays Stormsteel tribute, zaps nearby ground foes. Can relocate.",
+    "hp": 1400,
+    "armor": 5,
+    "w": 3,
+    "h": 3,
+    "cost": {},
+    "time": 0,
+    "tier": 1,
+    "isBase": true,
+    "trains": [
+     "windcaster"
+    ],
+    "sight": 9,
+    "tower": {
+     "dmg": 8,
+     "range": 5,
+     "cd": 1.5,
+     "air": false
+    },
+    "abilities": [
+     "relocate"
+    ]
+   },
+   "gale_barracks": {
+    "name": "Gale Barracks",
+    "desc": "Trains Stormblades and Wind Archers. Researches Stormsteel Weapons. +8 supply.",
+    "hp": 500,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 120
+    },
+    "time": 30,
+    "tier": 1,
+    "trains": [
+     "stormblade",
+     "wind_archer"
+    ],
+    "research": [
+     "stormsteel_weapons"
+    ],
+    "supply": 8,
+    "hotkey": "B"
+   },
+   "aerie": {
+    "name": "Aerie / Skyworks",
+    "desc": "Sky-pads for fliers. Trains Skywings; at Tier 2 becomes a Skyworks training Thunderhawks and Tempest Riders. +6 supply.",
+    "hp": 400,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 100
+    },
+    "time": 26,
+    "tier": 1,
+    "trains": [
+     "skywing",
+     "thunderhawk",
+     "tempest_rider"
+    ],
+    "research": [
+     "lightweight_alloy"
+    ],
+    "supply": 6,
+    "hotkey": "A"
+   },
+   "aetherforge": {
+    "name": "Aetherforge",
+    "desc": "Built on a stormglass node. Refines ore into Stormsteel tribute automatically (3/s). +6 supply.",
+    "hp": 400,
+    "armor": 2,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 90
+    },
+    "time": 24,
+    "tier": 1,
+    "needsNode": "primary",
+    "income": {
+     "p": 3
+    },
+    "supply": 6,
+    "hotkey": "F"
+   },
+   "stormcall_array": {
+    "name": "Stormcall Array",
+    "desc": "Built on an aether vent. Siphons Aether Crystals (1/s, doubled during storms).",
+    "hp": 350,
+    "armor": 1,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 80
+    },
+    "time": 20,
+    "tier": 1,
+    "needsNode": "secondary",
+    "income": {
+     "s": 1
+    },
+    "hotkey": "R"
+   },
+   "stormcall_tower": {
+    "name": "Stormcall Tower",
+    "desc": "Lightning tower (chains to 2) and weather-tech hub. Researches Forecast and Static Shield. Required for Tier 2.",
+    "hp": 350,
+    "armor": 3,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 100
+    },
+    "time": 22,
+    "tier": 1,
+    "tower": {
+     "dmg": 10,
+     "range": 6,
+     "cd": 1.3,
+     "chain": 2,
+     "air": true
+    },
+    "research": [
+     "forecast",
+     "static_shield"
+    ],
+    "sight": 8,
+    "hotkey": "T"
+   },
+   "thunderhead_tower": {
+    "name": "Thunderhead Tower",
+    "desc": "Heavy lightning tower. Prioritizes fliers, chains to 2 targets.",
+    "hp": 380,
+    "armor": 3,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 110,
+     "s": 20
+    },
+    "time": 24,
+    "tier": 1,
+    "tower": {
+     "dmg": 16,
+     "range": 7,
+     "cd": 1.5,
+     "chain": 2,
+     "air": true,
+     "prefAir": true
+    },
+    "sight": 9,
+    "hotkey": "H"
+   },
+   "cyclone_totem": {
+    "name": "Cyclone Totem",
+    "desc": "No attack. Allies nearby take 50% less ranged damage; enemies are slowed by the gale.",
+    "hp": 300,
+    "armor": 2,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 90
+    },
+    "time": 20,
+    "tier": 1,
+    "aura": {
+     "id": "cyclone",
+     "radius": 5
+    },
+    "sight": 6,
+    "hotkey": "Y"
+   },
+   "tempest_barrier": {
+    "name": "Tempest Barrier",
+    "desc": "Wall of solidified wind. Blocks ground AND air movement.",
+    "hp": 350,
+    "armor": 4,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 25
+    },
+    "time": 6,
+    "tier": 1,
+    "wall": true,
+    "blocksAir": true,
+    "hotkey": "W"
+   },
+   "storm_beacon": {
+    "name": "Storm Beacon",
+    "desc": "Sensor outpost with enormous vision. Reveals invisible units.",
+    "hp": 150,
+    "armor": 0,
+    "w": 1,
+    "h": 1,
+    "cost": {
+     "p": 60
+    },
+    "time": 12,
+    "tier": 1,
+    "sight": 14,
+    "detector": true,
+    "hotkey": "N"
+   },
+   "tempest_forge": {
+    "name": "Tempest Forge",
+    "desc": "Workshop. Trains Storm Golems and Lightning Cannons. Researches Overcharge Capacitors.",
+    "hp": 650,
+    "armor": 3,
+    "w": 3,
+    "h": 3,
+    "cost": {
+     "p": 220,
+     "s": 80
+    },
+    "time": 45,
+    "tier": 2,
+    "trains": [
+     "storm_golem",
+     "lightning_cannon"
+    ],
+    "research": [
+     "overcharge"
+    ],
+    "supply": 6,
+    "hotkey": "G"
+   },
+   "stratosanct": {
+    "name": "Stratosanct",
+    "desc": "Floating sanctum. Trickles Aether (0.6/s), researches Tribute Efficiency. Required for Tier 3.",
+    "hp": 500,
+    "armor": 3,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 200,
+     "s": 100
+    },
+    "time": 45,
+    "tier": 2,
+    "income": {
+     "s": 0.6
+    },
+    "research": [
+     "tribute_efficiency"
+    ],
+    "hotkey": "S"
+   },
+   "stormseer_conclave": {
+    "name": "Stormseer Conclave",
+    "desc": "Ultimate mage guild. Trains Tempest Weavers. Researches Storm Amplification.",
+    "hp": 550,
+    "armor": 3,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 300,
+     "s": 200
+    },
+    "time": 55,
+    "tier": 3,
+    "trains": [
+     "tempest_weaver"
+    ],
+    "research": [
+     "storm_amplification"
+    ],
+    "supply": 6,
+    "hotkey": "V"
+   },
+   "celestial_bastion": {
+    "name": "Celestial Bastion",
+    "desc": "Capital shipyard. Builds Sky Leviathans. +8 supply.",
+    "hp": 900,
+    "armor": 4,
+    "w": 3,
+    "h": 3,
+    "cost": {
+     "p": 450,
+     "s": 300
+    },
+    "time": 70,
+    "tier": 3,
+    "trains": [
+     "sky_leviathan"
+    ],
+    "supply": 8,
+    "hotkey": "C"
+   },
+   "maelstrom_altar": {
+    "name": "Maelstrom Altar",
+    "desc": "Channels a Tempest Pearl every 150s (holds 1). Spend a Pearl to unleash the Eye of Auranth — a map-wide storm.",
+    "hp": 600,
+    "armor": 3,
+    "w": 2,
+    "h": 2,
+    "cost": {
+     "p": 300,
+     "s": 250
+    },
+    "time": 60,
+    "tier": 3,
+    "catalystGen": {
+     "every": 150
+    },
+    "abilities": [
+     "eye_of_auranth"
+    ],
+    "hotkey": "M"
+   }
+  },
+  "research": {
+   "stormsteel_weapons": {
+    "name": "Stormsteel Weapons",
+    "desc": "+2 damage for all units.",
+    "cost": {
+     "p": 120
+    },
+    "time": 30,
+    "tier": 1,
+    "hotkey": "S",
+    "effect": {
+     "dmg": 2
+    }
+   },
+   "forecast": {
+    "name": "Forecast",
+    "desc": "Storm and weather abilities last 50% longer.",
+    "cost": {
+     "p": 100,
+     "s": 30
+    },
+    "time": 30,
+    "tier": 1,
+    "hotkey": "F",
+    "effect": {
+     "stormDur": 1.5
+    }
+   },
+   "static_shield": {
+    "name": "Static Shield",
+    "desc": "All structures gain +3 armor.",
+    "cost": {
+     "p": 120,
+     "s": 40
+    },
+    "time": 35,
+    "tier": 1,
+    "hotkey": "D",
+    "effect": {
+     "structArmor": 3
+    }
+   },
+   "lightweight_alloy": {
+    "name": "Lightweight Alloy",
+    "desc": "Flying units move 20% faster.",
+    "cost": {
+     "p": 150,
+     "s": 60
+    },
+    "time": 35,
+    "tier": 2,
+    "hotkey": "L",
+    "effect": {
+     "flyingSpeed": 1.2
+    }
+   },
+   "overcharge": {
+    "name": "Overcharge Capacitors",
+    "desc": "Lightning towers and cannons deal 25% more damage.",
+    "cost": {
+     "p": 180,
+     "s": 80
+    },
+    "time": 40,
+    "tier": 2,
+    "hotkey": "O",
+    "effect": {
+     "towerDmg": 1.25
+    }
+   },
+   "tribute_efficiency": {
+    "name": "Tribute Efficiency",
+    "desc": "All tribute income +30%.",
+    "cost": {
+     "p": 200,
+     "s": 100
+    },
+    "time": 45,
+    "tier": 2,
+    "hotkey": "E",
+    "effect": {
+     "income": 1.3
+    }
+   },
+   "storm_amplification": {
+    "name": "Storm Amplification",
+    "desc": "Hero ability damage +30%.",
+    "cost": {
+     "p": 250,
+     "s": 200
+    },
+    "time": 50,
+    "tier": 3,
+    "hotkey": "A",
+    "effect": {
+     "abilityDmg": 1.3
+    }
+   }
+  }
+ }
+}

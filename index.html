@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Realm of Nexus – RTS</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="menu">
+  <h1>REALM OF NEXUS</h1>
+  <h2>CORE FACTION MECHANICS — SKIRMISH</h2>
+  <div class="factions" id="factionCards"></div>
+  <div class="opts">
+    <label>Opponent: <select id="aiFaction"><option value="tempest">Tempest</option><option value="abyss">Abyss</option><option value="random">Random</option></select></label>
+    <label>Difficulty: <select id="difficulty"><option value="easy">Easy</option><option value="normal" selected>Normal</option><option value="hard">Hard</option></select></label>
+  </div>
+  <button class="start" id="startBtn">BEGIN THE WAR</button>
+  <div class="help">
+    Left-click select · Drag box select · Right-click move / attack / gather · A attack-move · S stop · H hold · Ctrl+1-9 groups ·
+    Arrow keys / edge scroll / minimap camera · Space jumps to last attack · F1 select army · F2 hero · Tab idle worker · Q W E R hero abilities · Esc cancel · P pause · Destroy every enemy building to win.
+  </div>
+</div>
+
+<div id="game">
+  <canvas id="canvas"></canvas>
+  <div id="topbar">
+    <div class="res" id="resP"></div>
+    <div class="res" id="resS"></div>
+    <div class="res" id="resC"></div>
+    <div class="res" id="resSupply"></div>
+    <div class="spacer"></div>
+    <div class="weather" id="weatherLabel"></div>
+    <div class="tier" id="tierLabel"></div>
+    <div id="clock"></div>
+    <button id="pauseBtn">Pause</button>
+    <button id="menuBtn">Quit</button>
+  </div>
+  <div id="msglog"></div>
+  <div id="bottombar">
+    <div id="minimapWrap"><canvas id="minimap" width="188" height="176"></canvas></div>
+    <div id="selpanel"></div>
+    <div id="cmdcard"></div>
+  </div>
+  <div id="pausebox">PAUSED</div>
+</div>
+<div id="tooltip"></div>
+<div id="endscreen"><h1 id="endTitle"></h1><p id="endText"></p><button id="endBtn">Back to Menu</button></div>
+
+<script src="js/config.js?v=9"></script>
+<script src="js/util.js?v=9"></script>
+<script src="js/data/abyss.js?v=9"></script>
+<script src="js/data/tempest.js?v=9"></script>
+<script src="js/data/radiance.js?v=9"></script>
+<script src="js/data/verdance.js?v=9"></script>
+<script src="js/data/sanctuary.js?v=9"></script>
+<script src="js/data/index.js?v=9"></script>
+<script src="js/map.js?v=9"></script>
+<script src="js/pathfinding.js?v=9"></script>
+<script src="js/entities.js?v=9"></script>
+<script src="js/game.js?v=9"></script>
+<script src="js/combat.js?v=9"></script>
+<script src="js/abilities.js?v=9"></script>
+<script src="js/abilities_domains.js?v=9"></script>
+<script src="js/ai.js?v=9"></script>
+<script src="js/render.js?v=9"></script>
+<script src="js/ui.js?v=9"></script>
+<script src="js/input.js?v=9"></script>
+<script src="js/audio.js?v=9"></script>
+<script src="js/main.js?v=9"></script>
+</body>
+</html>
